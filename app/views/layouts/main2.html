@@ -1,0 +1,80 @@
+{#
+    For guidance on how to use layouts see:
+    https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+    #}
+    
+    {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+    
+    {% block header %}
+    {% from "internal-service-header/macro.njk" import dwpHeader %}
+
+    <header data-module="govuk-header" class="dwp-header" style="background: #0b0c0c;">
+      <div class="dwp-header__content govuk-width-container">
+        <div class="dwp-header__service-name">
+          <a href="/index" class="dwp-header__link">Funeral Expenses Payment Manager</a>
+        </div>
+        <nav class="dwp-header-navigation"
+          aria-label="Primary">
+          <button type="button" class="dwp-header-navigation__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
+            Menu
+          </button>
+          <ul id="navigation" class="dwp-header-navigation__list">
+            <li class="dwp-header-navigation__item">
+              <a
+                href="/v1/home">
+                Home
+              </a>
+            </li>
+            <li class="dwp-header-navigation__item">
+              <a
+                href="#">
+                Register claim
+              </a>
+            </li>
+            <li class="dwp-header-navigation__item">
+              <a
+                href="/v1/find-a-claim">
+                Find claim
+              </a>
+            </li>
+            <!-- <li class="dwp-header-navigation__item">
+              <a
+                href="#">
+                Item 4
+              </a>
+            </li> -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <!-- <header class="dwp-header" style="background: #0b0c0c;">
+        <div class="dwp-header__content govuk-width-container">
+          <div class="dwp-header__service-name">
+            <a href="#" class="dwp-header__link">Service name</a>
+          </div>
+        </div>
+      </header> -->
+
+      
+    
+    {% endblock %}
+
+
+{% block footer %}
+
+<footer class="govuk-footer" style="border-top: 1px solid #b1b4b6;">
+    <div class="govuk-width-container">
+      <h2 class="govuk-visually-hidden">About this website</h2>
+      <ul class="govuk-footer__inline-list">
+        <li class="govuk-footer__inline-list-item">
+          <a class="govuk-footer__link" href="">Accessibility statement</a>
+        </li>
+        <li class="govuk-footer__inline-list-item">
+          <a class="govuk-footer__link" href="">Privacy</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+{% endblock %}

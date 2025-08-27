@@ -2,9 +2,9 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: funeral.payments.manager
-  title: Funeral-Payments-Manager 
+  title: Funeral-Payments-Manager
   description: |
-    TODO: add description for blank-prototype-kit.
+    This is the new processing system for Funeral Expenses Payment. Formally known as SFCS.
 
   annotations:
     gitlab.com/project-slug: dwp/user-centred-design/blank-prototype-kit
@@ -13,7 +13,7 @@ metadata:
     dwp.gov.uk/version: 1.0.0
     dwp.gov.uk/license: unknown
 
-    dwp.gov.uk/last-verified.by: Ben Raine
+    dwp.gov.uk/last-verified.by: Mhari McNaught
     dwp.gov.uk/last-verified.on: 2025-08-27
 
     dwp.gov.uk/open-source.approved: "false"

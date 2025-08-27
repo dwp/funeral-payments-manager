@@ -1,0 +1,190 @@
+{% extends "layouts/main2.html" %}
+
+{% block pageTitle %}
+  Claim for Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <h1 class="govuk-heading-l">{{ serviceName }}</h1> -->
+
+      <section class="dwp-quick-reference" aria-label="Case information">
+        <dl class="dwp-quick-reference__block">
+          <dd class="dwp-quick-reference__status">
+            <strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>
+          </dd>
+          <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+          <dd class="dwp-quick-reference__primary">Jane Doe</dd>
+          <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National Insurance number:</dt>
+          <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+          <dt class="dwp-quick-reference__label govuk-visually-hidden">Claim status:</dt>
+        </dl>
+      </section>
+      <br>
+
+      <h2 class="govuk-heading-m">Registration</h2>
+
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-1-status">
+              Claimant details
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-2-status">
+              Deceased details
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Processing a claim</h2>
+
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-3-hint company-details-3-status">
+              Eligibility
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+          <!-- <div class="govuk-task-list__status" id="company-details-3-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
+            </strong>
+          </div> -->
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/v1/money/available" aria-describedby="company-details-4-status">
+              Money available
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-4-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+             Funeral costs
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-5-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+             Calculating award amount
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-5-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+             Funeral director and bank details
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-5-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+             Making payment
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-5-status">
+            <strong class="govuk-tag govuk-tag--grey">
+              Cannot start yet
+            </strong>
+          </div>
+        </li>
+      </ul>
+
+     
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+    {% from "timeline/macro.njk" import dwpTimeline %}
+
+<h2 class="govuk-heading-m">Claim history</h2>
+<br>
+{{
+        dwpTimeline({ 
+            items: [               
+               
+                {
+                    title:  "[enter text]",
+                    byline:  "[agent name]",
+                    date:  "26 April 2024 at 12:42pm"
+                },
+               
+              
+                {
+                    title:  "Funeral costs added",
+                    byline:  "[agent name]",
+                    date:  "21 April 2024 at 1:12pm"
+                },
+                {
+                    title:  "Eligibility complete",
+                    byline:  "[agent name]",
+                    date:  "21 April 2024 at 10:15am"
+                },
+                {
+                    title:  "Deceased details added",
+                    byline:  "[agent name]",
+                    date:  "19 April 2024 at 10:58am"
+                },
+               
+                {
+                    title:  "Claimant details added",
+                    byline:  "[agent name]",
+                    date:  "28 March 2024 at 9:12am"
+                },
+                {
+                    title:  "Application received",
+                    date:  "12 March 2024 at 3:00pm"
+                }
+        ]
+        })
+}}
+
+</div>
+
+  </div>
+{% endblock %}

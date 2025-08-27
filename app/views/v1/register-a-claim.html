@@ -1,0 +1,45 @@
+{% extends "layouts/main2.html" %}
+
+{% block pageTitle %}
+  Start a claim – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+ <h1 class="govuk-heading-l">Register a claim</h1>
+
+ <p class="govuk-body">To register a claim you first need to find the claimant's details using their national insurance number.</p>
+
+  <div class="moj-search">
+
+    <form action="" method="post">
+  
+      <div class="govuk-form-group">
+      
+        <label class="govuk-label" for="input-nino">
+          <span>Enter the claimant’s National Insurance number</span>
+        </label>
+  
+        <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
+  
+      </div>
+  
+      <button type="submit" class="govuk-button moj-search__button " data-module="govuk-button">
+        Search
+      </button>
+    
+    </form> 
+ 
+  </div>
+  <p class="govuk-body govuk-!-margin-bottom-8"></p>
+
+  </div>
+</div>
+
+
+{% endblock %}

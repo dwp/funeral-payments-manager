@@ -1,3 +1,8 @@
 {
-  "serviceName": "Service name goes here"
+  "serviceName": "Funeral Expenses Payment Manager",
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
 }

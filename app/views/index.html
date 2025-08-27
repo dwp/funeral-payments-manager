@@ -7,18 +7,40 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
-    <h1 class="govuk-heading-xl">
+    <h1 class="govuk-heading-l">
       {{ serviceName }}
     </h1>
 
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              1st round of UR with FEP decision makers 
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+          <p class="govuk-body">This round focuses on the tasks for calculating award amount and making payment.
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link" href="/v1/tasklist">Tasklist</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="/v1/home">Homepage</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="/v1/register-a-claim">Register a claim</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="/v1/find-a-claim">Find a claim</a>
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
 
-      {{ govukButton({
-          text: "Continue",
-          href: "example/where-do-you-live"
-        }) }}
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
   </div>
 </div>
 
