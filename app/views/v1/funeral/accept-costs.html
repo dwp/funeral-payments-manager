@@ -1,0 +1,119 @@
+{% extends "layouts/main2.html" %}
+
+{% block pageTitle %}
+  Money to pay for the funeral – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v1/funeral/cya" method="post">
+
+      {% set adjustcremHtml %}
+      {{ govukInput({
+        id: "adjustcrem",
+        name: "adjustcrem",
+        spellcheck: false,
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        label: {
+          text: ""
+        }
+      }) }}
+      {% endset -%}
+
+      {% set adjustotherHtml %}
+      {{ govukInput({
+        id: "adjustother",
+        name: "adjustother",
+        spellcheck: false,
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        label: {
+          text: ""
+        }
+      }) }}
+      {% endset -%}
+
+
+      <h1 class="govuk-heading-l">Funeral costs accepted</h1>
+      
+      {{ govukRadios({
+        name: "acceptcrem",
+        fieldset: {
+          legend: {
+            text: "Award £" + data['crem'] +  " for cremation costs?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "",
+            text: "No",
+            conditional: {
+              html: adjustcremHtml
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        name: "acceptother",
+        fieldset: {
+          legend: {
+            text: "Award £1000 for other funeral expenses?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "Other funeral expenses requested were £" + data['otherexp']
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "",
+            text: "No",
+            conditional: {
+              html: adjustotherHtml
+            }
+          }
+        ]
+      }) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

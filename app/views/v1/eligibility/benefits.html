@@ -1,0 +1,158 @@
+{% extends "layouts/main2.html" %}
+
+{% block pageTitle %}
+  Money to pay for the funeral – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v1/eligibility/relationship" method="post">
+
+ 
+      {% if (data['youhavepartner'] == "yes") %}
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
+        What benefits is the claimant or partner on?
+      </h1>
+
+        {{ govukCheckboxes({
+          name: "benefits",
+          values: data["benefits"],
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Universal Credit",
+              text: "Universal Credit"
+            },
+            {
+              value: "Income Support",
+              text: "Income Support"
+            },
+            {
+              value: "Income-based Jobseeker's Allowance",
+              text: "Income-based Jobseeker's Allowance"
+            },
+            {
+              value: "Income-related Employment and Support Allowance",
+              text: "Income-related Employment and Support Allowance"
+            },
+            {
+              value: "Pension Credit",
+              text: "Pension Credit"
+            },
+            {
+              value: "Housing Benefit",
+              text: "Housing Benefit"
+            },
+            {
+              value: "Support for Morgage Interest",
+              text: "Support for Mortgage Interest"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "no",
+              text: "None",
+              behaviour: "exclusive"
+            }
+          ]
+        }) }}
+
+        {% else %}
+
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
+          What benefits is the claimant on?
+        </h1>
+
+          {{ govukCheckboxes({
+            name: "benefits",
+            values: data["benefits"],
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Select all that apply."
+            },
+            items: [
+              {
+                value: "Universal Credit",
+                text: "Universal Credit"
+              },
+              {
+                value: "Income Support",
+                text: "Income Support"
+              },
+              {
+                value: "Income-based Jobseeker's Allowance",
+                text: "Income-based Jobseeker's Allowance"
+              },
+              {
+                value: "Income-related Employment and Support Allowance",
+                text: "Income-related Employment and Support Allowance"
+              },
+              {
+                value: "Pension Credit",
+                text: "Pension Credit"
+              },
+              {
+                value: "Housing Benefit",
+                text: "Housing Benefit"
+              },
+              {
+                value: "Support for Morgage Interest",
+                text: "Support for Mortgage Interest"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "no",
+                text: "None",
+                behaviour: "exclusive"
+              }
+            ]
+          }) }}
+
+          {% endif %}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

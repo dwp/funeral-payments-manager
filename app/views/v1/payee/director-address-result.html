@@ -1,0 +1,97 @@
+{% extends "layouts/main2.html" %}
+
+{% block pageTitle %}
+  Funeral director details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v1/payee/who-to-pay" method="post">
+
+      <h1 class="govuk-heading-l">
+        Funeral director details
+      </h1>
+
+      {{ govukInput({
+        label: {
+          text: "Business name of funeral director"
+        },
+        classes: "govuk-!-width-full",
+        id: "fd-name",
+        name: "fd-name", 
+        value: data['fd-name']
+      }) }}
+    
+      {{ govukInput({
+        label: {
+          text: "Reference number on funeral bill (if there is one)"
+        },
+        classes: "govuk-input--width-20",
+        id: "ref-num",
+        name: "ref-num", 
+        value: data['ref-num']
+      }) }}
+
+      <h2 class="govuk-heading-m">Postcode</h2>
+      <p class="govuk-body">{{ data['fd-address-postcode'] }}&emsp;<a href="home-address-postcode" class="govuk-link">Change</a>
+      </p>
+      <div class="govuk-form-group">
+        <label class="govuk-heading-m" for="address">
+          Select an address
+        </label>
+    
+          {{ govukSelect({
+            id: "home-address-select",
+            name: "home-address-select",
+            items: [
+              {value:"", text : "5 addresses found"},
+              {value:"2 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"2 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"},
+              {value:"4 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"4 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"},
+              {value:"6 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"6 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"},
+              {value:"8 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"8 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"},
+              {value:"120 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"120 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"}
+            ]
+          }) }}
+    
+        <!-- <select class="govuk-select" id="address" name="address">
+          <option value="47089597">60 addresses found</option>
+          <option value="2 TURNBERRY RED HOUSE FARM, WHITLEY BAY">2 TURNBERRY, RED HOUSE FARM, Cullercoats</option>
+        </select> -->
+      </div>
+  
+ 
+      <p class="govuk-body">
+        <a href="" class="govuk-link">
+          Enter address manually
+        </a>
+      </p><br>
+
+
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+
+
+       
+        
+      </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

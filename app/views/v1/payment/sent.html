@@ -1,0 +1,47 @@
+{% extends "layouts/main2.html" %}
+
+{% block pageTitle %}
+  How much do you want to pay the Funeral Director? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/make-payment-answer" method="post">
+
+      <!-- <h1 class="govuk-heading-l">Payment sent</h1> -->
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{{ govukPanel({
+  titleText: "Payment sent",
+  html: ""
+}) }}
+
+<br><p class="govuk-body">Letter sent out automatically to claimant and funeral director.</p>
+
+<p class="govuk-body">[insert more content related to summary]</p>
+
+<p class="govuk-body">
+  <a href="/v1/tasklist-blank" class="govuk-link govuk-link--no-visited-state">Refer claim to debt management</a>
+</p>
+
+
+      
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

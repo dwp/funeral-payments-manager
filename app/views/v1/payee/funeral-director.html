@@ -14,20 +14,22 @@
 
 {% block content %}
 
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/money-answer" method="post">
+    <form class="form" action="/funeral-director-answer" method="post">
 
  {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
-  classes: "govuk-radios--inline",
-  name: "moneyavailable",
-  values: data["moneyavailable"],
+  classes: "govuk-radios",
+  name: "director",
+  values: data["director"],
   fieldset: {
     legend: {
-      text: "Is there any money available to help pay for the funeral?",
+      text: "Is the claimant using a funeral director?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -39,7 +41,7 @@
     },
     {
       value: "no",
-      text: "No"
+      text: "No, claimant arranging funeral themselves"
     }
   ]
 }) }}

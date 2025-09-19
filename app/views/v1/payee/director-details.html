@@ -1,0 +1,89 @@
+{% extends "layouts/main2.html" %}
+
+{% block pageTitle %}
+  Funeral director details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v1/payee/director-address-result" method="post">
+
+      <h1 class="govuk-heading-l">
+        Funeral director details
+      </h1>
+
+      {{ govukInput({
+        label: {
+          text: "Business name of funeral director"
+        },
+        classes: "govuk-!-width-full",
+        id: "fd-name",
+        name: "fd-name", 
+        value: data['fd-name']
+      }) }}
+    
+      {{ govukInput({
+        label: {
+          text: "Reference number on funeral bill (if there is one)"
+        },
+        classes: "govuk-input--width-20",
+        id: "ref-num",
+        name: "ref-num", 
+        value: data[ ref-num']
+      }) }}
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block form %}
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="postcode">
+      Postcode
+    </label>
+
+    {{ govukInput({
+      id: "fd-address-postcode",
+      name: "fd-address-postcode",
+      value: data['fd-address-postcode'],
+      classes: 'govuk-input--width-10'
+    }) }}
+  </div>
+{% endblock %}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Find address
+</button>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">
+        <a href="" class="govuk-link">
+          Enter address manually
+        </a>
+      </p>
+    </div>
+  </div>
+
+
+       
+        
+      </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -27,9 +27,9 @@
           <dt class="dwp-quick-reference__label govuk-visually-hidden">Claim status:</dt>
         </dl>
       </section>
-      <br>
+      
 
-      <h2 class="govuk-heading-m">Registration</h2>
+      <!-- <h2 class="govuk-heading-m">Registration</h2>
 
       <ul class="govuk-task-list">
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
@@ -52,85 +52,176 @@
             Completed
           </div>
         </li>
-      </ul>
+      </ul> -->
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-5">Processing a claim</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Claim information</h2>
+
+      {% if (data['moneyavailable'] == "yes") %}
+
+
+      {% else %}
+
+      
+    
+      {% endif %}
 
       <ul class="govuk-task-list">
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+        <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
             <a class="govuk-link govuk-task-list__link" href="/v1/eligibility/benefits" aria-describedby="company-details-3-hint company-details-3-status">
-              Eligibility
+              Task 1
             </a>
           </div>
           <div class="govuk-task-list__status" id="company-details-1-status">
             Completed
           </div>
-          <!-- <div class="govuk-task-list__status" id="company-details-3-status">
+          <div class="govuk-task-list__status" id="company-details-3-status">
             <strong class="govuk-tag govuk-tag--blue">
               Incomplete
             </strong>
-          </div> -->
-        </li>
+          </div>
+        </li> -->
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
             <a class="govuk-link govuk-task-list__link" href="/v1/money/available" aria-describedby="company-details-4-status">
-              Money available
+              Task 1
             </a>
           </div>
-          <div class="govuk-task-list__status" id="company-details-4-status">
-            <strong class="govuk-tag govuk-tag--blue">
-              Incomplete
-            </strong>
-          </div>
+            
+            {% if (data['moneyavailable'] == "yes" or data['moneyavailable'] == "no") %}
+
+            <div class="govuk-task-list__status" id="company-details-1-status">
+              Completed
+            </div>
+
+            {% else %}
+
+            <div class="govuk-task-list__status" id="company-details-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Incomplete
+              </strong>
+            </div>
+
+            {% endif %}
+
         </li>
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
             <a class="govuk-link govuk-task-list__link" href="/v1/funeral/type" aria-describedby="company-details-5-status">
-             Funeral costs
+             Task 2
             </a>
           </div>
-          <div class="govuk-task-list__status" id="company-details-5-status">
+          {% if (data['funeral-costs'].length > 0) %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+          
+            {% else %}
+
+            <div class="govuk-task-list__status" id="company-details-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Incomplete
+              </strong>
+            </div>
+
+            {% endif %}
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/v1/award/summary" aria-describedby="company-details-5-status">
+             Task 3
+            </a>
+          </div>
+          
+          {% if (data['confirmaward'] == "yes") %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+
+          {% else %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
             <strong class="govuk-tag govuk-tag--blue">
               Incomplete
             </strong>
           </div>
+
+          {% endif %}
+
         </li>
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
-             Calculating award amount
+            <a class="govuk-link govuk-task-list__link" href="/v1/payee/funeral-director" aria-describedby="company-details-5-status">
+             Task 4
             </a>
           </div>
-          <div class="govuk-task-list__status" id="company-details-5-status">
-            <strong class="govuk-tag govuk-tag--grey">
-              Cannot start yet
+
+          {% if (data['director'] == "yes" or data['director'] == "no") %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+
+          {% else %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
             </strong>
           </div>
+
+          {% endif %}
+          
         </li>
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
-             Funeral director and bank details
+            <a class="govuk-link govuk-task-list__link" href="/v1/payment/how-much" aria-describedby="company-details-5-status">
+             Task 5
             </a>
           </div>
-          <div class="govuk-task-list__status" id="company-details-5-status">
-            <strong class="govuk-tag govuk-tag--grey">
-              Cannot start yet
+          {% if (data['makepayment'] == "yes") %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+
+          {% else %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
             </strong>
           </div>
+
+          {% endif %}
         </li>
+
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
-             Making payment
+            <a class="govuk-link govuk-task-list__link" href="/v1/debt/refer" aria-describedby="company-details-5-status">
+             Task 6
             </a>
           </div>
-          <div class="govuk-task-list__status" id="company-details-5-status">
-            <strong class="govuk-tag govuk-tag--grey">
-              Cannot start yet
+
+          {% if (data['refer'] == "yes" or data['refer'] == "no") %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+
+          {% else %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
             </strong>
           </div>
+
+          {% endif %}
+
+
         </li>
       </ul>
 
@@ -140,7 +231,7 @@
 
     <div class="govuk-grid-column-one-third">
 
-    {% from "timeline/macro.njk" import dwpTimeline %}
+    <!-- {% from "timeline/macro.njk" import dwpTimeline %}
 
 <h2 class="govuk-heading-m">Claim history</h2>
 <br>
@@ -182,7 +273,7 @@
                 }
         ]
         })
-}}
+}} -->
 
 </div>
 

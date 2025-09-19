@@ -14,20 +14,22 @@
 
 {% block content %}
 
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/money-answer" method="post">
+    <form class="form" action="/v1/tasklist-blank" method="post">
 
  {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
-  name: "moneyavailable",
-  values: data["moneyavailable"],
+  name: "refer",
+  values: data["refer"],
   fieldset: {
     legend: {
-      text: "Is there any money available to help pay for the funeral?",
+      text: "Do you need to refer this claim to Debt Management?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
