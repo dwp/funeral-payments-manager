@@ -30,7 +30,7 @@
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                   <th scope="col" class="govuk-table__header">Funeral costs requested</th>
-                  <td class="govuk-table__cell">£2996.600</td>
+                  <td class="govuk-table__cell">£3127.00</td>
                 </tr>
               </thead>
             </tbody>
@@ -46,11 +46,11 @@
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Cremation costs</th>
-                <td class="govuk-table__cell">- £90.00</td>
+                <td class="govuk-table__cell">- £100.00</td>
               </tr>
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Other funeral expenses</th>
-                <td class="govuk-table__cell">- £100.000</td>
+                <td class="govuk-table__cell">- £995.00</td>
               </tr>
             </tbody>
           </table>
@@ -65,24 +65,37 @@
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Bank accounts</th>
-                <td class="govuk-table__cell">- £150.00</td>
+                <td class="govuk-table__cell">- £250.70</td>
               </tr>
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Other money</th>
-                <td class="govuk-table__cell">- £75.00</td>
+                <th scope="row" class="govuk-table__header">Occupational pension</th>
+                <td class="govuk-table__cell">- £127.75</td>
               </tr>
             </tbody>
           </table>
 
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header" style="
+                  width: 432px">Total</th>
+                  <td class="govuk-table__cell">£1653.55</td>
+                </tr>
+              </thead>
+            </tbody>
+          </table><br>
+
   
     
             {{ govukRadios({
+              classes: "govuk-radios--inline",
               name: "confirmaward",
               fieldset: {
                 legend: {
-                  text: "Can you confrim the award amount is £2660.00?",
+                  text: "Can you confirm the award amount is £1653.55?",
                   isPageHeading: false,
-                  classes: "govuk-fieldset__legend--s"
+                  classes: "govuk-fieldset__legend--m"
                 }
               },
               items: [

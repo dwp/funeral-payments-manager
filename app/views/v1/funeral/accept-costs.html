@@ -36,6 +36,22 @@
       }) }}
       {% endset -%}
 
+      {% set adjustdoctorHtml %}
+      {{ govukInput({
+        id: "adjustdoctor",
+        name: "adjustdoctor",
+        spellcheck: false,
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        label: {
+          text: ""
+        }
+      }) }}
+      {% endset -%}
+
+
       {% set adjustotherHtml %}
       {{ govukInput({
         id: "adjustother",
@@ -79,10 +95,34 @@
       }) }}
 
       {{ govukRadios({
+        name: "acceptdoctor",
+        fieldset: {
+          legend: {
+            text: "Award £" + data['doctor'] +  " for doctors certificates?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "",
+            text: "No",
+            conditional: {
+              html: adjustdoctorHtml
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
         name: "acceptother",
         fieldset: {
           legend: {
-            text: "Award £1000 for other funeral expenses?",
+            text: "Award £1000.00 for other funeral expenses?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
           }
