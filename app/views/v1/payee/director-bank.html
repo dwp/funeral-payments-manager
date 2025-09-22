@@ -19,7 +19,7 @@
 
     {% if (data['whotopay'] == "director") %}
 
-    <form class="form" action="/v1/tasklist-blank" method="post">
+    <form class="form" action="/v1/payee/cya" method="post">
 
    {% else %}
 
@@ -27,14 +27,12 @@
 
   {% endif %}
 
-    
-
       <h1 class="govuk-heading-l">Funeral director bank details</h1>
       <div class="govuk-form-group">
-        <label class="govuk-label" for="name-on-the-account">
+        <label class="govuk-label" for="fd-name-on-the-account">
           Name on the account
         </label>
-        <input class="govuk-input" id="name-on-the-account" name="nameOnTheAccount" type="text" spellcheck="false" autocomplete="name">
+        <input class="govuk-input" id="fd-name-on-the-account" name="fd-nameOnTheAccount" type="text" spellcheck="false" autocomplete="name">
       </div>
       <div class="govuk-form-group">
         <label class="govuk-label" for="sort-code">
@@ -43,7 +41,7 @@
         <div id="sort-code-hint" class="govuk-hint">
           Must be 6 digits long
         </div>
-        <input class="govuk-input govuk-input--width-5 govuk-input--extra-letter-spacing" id="sort-code" name="sortCode" type="text" spellcheck="false" aria-describedby="sort-code-hint" inputmode="numeric">
+        <input class="govuk-input govuk-input--width-5 govuk-input--extra-letter-spacing" id="fd-sort-code" name="fd-sortCode" type="text" spellcheck="false" aria-describedby="sort-code-hint" inputmode="numeric">
       </div>
       <div class="govuk-form-group">
         <label class="govuk-label" for="account-number">
@@ -52,7 +50,7 @@
         <div id="account-number-hint" class="govuk-hint">
           Must be between 6 and 8 digits long
         </div>
-        <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="account-number" name="accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+        <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="fd-account-number" name="fd-accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
       </div>
       <div class="govuk-form-group">
         <label class="govuk-label" for="roll-number">

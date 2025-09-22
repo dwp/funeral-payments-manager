@@ -48,7 +48,7 @@
           Bank accounts
         </dt>
         <dd class="govuk-summary-list__value">
-          £{{ data['accounts'] }}
+          {{ "£" + data['accounts'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="/v1/money/type">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -59,7 +59,7 @@
           Pension
         </dt>
         <dd class="govuk-summary-list__value">
-          £{{ data['pension'] }}
+          {{ "£" + data['pension'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="/v1/money/type">Change<span class="govuk-visually-hidden"> date of birth</span></a>

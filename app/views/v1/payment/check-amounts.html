@@ -27,7 +27,7 @@
             {{ data['fd-name'] or "Funeral director" }}
           </dt>
           <dd class="govuk-summary-list__value">
-            £1232.00
+            {{ "£" + data['fdcost'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/v1/payment/how-much">Change<span class="govuk-visually-hidden"> name</span></a>
