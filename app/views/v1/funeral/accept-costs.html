@@ -36,10 +36,10 @@
       }) }}
       {% endset -%}
 
-      {% set adjustdoctorHtml %}
+      {% set adjustdocsHtml %}
       {{ govukInput({
-        id: "adjustdoctor",
-        name: "adjustdoctor",
+        id: "adjustdocs",
+        name: "adjustdocs",
         spellcheck: false,
         prefix: {
           text: "£"
@@ -95,10 +95,10 @@
       }) }}
 
       {{ govukRadios({
-        name: "acceptdoctor",
+        name: "acceptdocs",
         fieldset: {
           legend: {
-            text: "Award £" + data['doctor'] +  " for doctors certificates?",
+            text: "Award £" + data['docs'] +  " for documentation to release money?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
           }
@@ -112,7 +112,7 @@
             value: "",
             text: "No",
             conditional: {
-              html: adjustdoctorHtml
+              html: adjustdocsHtml
             }
           }
         ]

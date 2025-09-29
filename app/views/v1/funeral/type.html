@@ -69,21 +69,6 @@
           }) }}
           {% endset -%}
 
-          {% set doctorHtml %}
-          {{ govukInput({
-            id: "doctor",
-            name: "doctor",
-            spellcheck: false,
-            prefix: {
-              text: "£"
-            },
-            classes: "govuk-input--width-5",
-            label: {
-              text: ""
-            }
-          }) }}
-          {% endset -%}
-
           {% set docsHtml %}
           {{ govukInput({
             id: "docs",
@@ -192,13 +177,6 @@
                 text: "Cremation costs",
                 conditional: {
                   html: cremHtml
-                }
-              },
-              {
-                value: "doctor",
-                text: "Doctors certificates",
-                conditional: {
-                  html: doctorHtml
                 }
               },
               {
