@@ -21,10 +21,10 @@
 
     <form class="form" action="/v1/funeral/cya" method="post">
 
-      {% set adjustcremHtml %}
+      {% set adjustplotHtml %}
       {{ govukInput({
-        id: "adjustcrem",
-        name: "adjustcrem",
+        id: "adjustplot",
+        name: "adjustplot",
         spellcheck: false,
         prefix: {
           text: "£"
@@ -36,10 +36,10 @@
       }) }}
       {% endset -%}
 
-      {% set adjustdocsHtml %}
+      {% set adjustburialHtml %}
       {{ govukInput({
-        id: "adjustdocs",
-        name: "adjustdocs",
+        id: "adjustburial",
+        name: "adjustburial",
         spellcheck: false,
         prefix: {
           text: "£"
@@ -71,10 +71,10 @@
       <h1 class="govuk-heading-l">Funeral costs accepted</h1>
       
       {{ govukRadios({
-        name: "acceptcrem",
+        name: "acceptplot",
         fieldset: {
           legend: {
-            text: "Award £" + data['crem'] +  " for cremation costs?",
+            text: "Award £" + data['plot'] +  " for burial plot?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
           }
@@ -88,17 +88,17 @@
             value: "",
             text: "No",
             conditional: {
-              html: adjustcremHtml
+              html: adjustplotHtml
             }
           }
         ]
       }) }}
 
       {{ govukRadios({
-        name: "acceptdocs",
+        name: "acceptburial",
         fieldset: {
           legend: {
-            text: "Award £" + data['docs'] +  " for documentation to release money?",
+            text: "Award £" + data['burial'] +  " for burial costs?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
           }
@@ -112,7 +112,7 @@
             value: "",
             text: "No",
             conditional: {
-              html: adjustdocsHtml
+              html: adjustburialHtml
             }
           }
         ]
