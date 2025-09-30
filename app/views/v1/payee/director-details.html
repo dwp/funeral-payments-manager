@@ -32,7 +32,7 @@
         classes: "govuk-!-width-full",
         id: "fd-name",
         name: "fd-name", 
-        value: "Belfast Funeral Directors"
+        value: data['fd-name']
       }) }}
     
       {{ govukInput({
@@ -42,7 +42,7 @@
         classes: "govuk-input--width-20",
         id: "ref-num",
         name: "ref-num", 
-        value: "RHF-09867"
+        value: data[ ref-num']
       }) }}
 
       {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -56,7 +56,7 @@
     {{ govukInput({
       id: "fd-address-postcode",
       name: "fd-address-postcode",
-      value: "BT1 1BG",
+      value: data['fd-address-postcode'],
       classes: 'govuk-input--width-10'
     }) }}
   </div>
