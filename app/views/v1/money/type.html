@@ -43,6 +43,7 @@
           {{ govukInput({
             id: "accounts",
             name: "accounts",
+            value: "250.70",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -88,6 +89,7 @@
           {{ govukInput({
             id: "pension",
             name: "pension",
+            value: "127.75",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -183,6 +185,7 @@
               {
                 value: "accounts",
                 text: "Bank accounts",
+                checked: true,
                 conditional: {
                   html: accountsHtml
                 }
@@ -204,6 +207,7 @@
               {
                 value: "pension",
                 text: "Occupational pension",
+                checked: true,
                 conditional: {
                   html: pensionHtml
                 }

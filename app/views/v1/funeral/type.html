@@ -28,6 +28,7 @@
           {{ govukInput({
             id: "plot",
             name: "plot",
+            value: "600.00",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -43,6 +44,7 @@
           {{ govukInput({
             id: "burial",
             name: "burial",
+            value: "665.00",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -133,6 +135,7 @@
           {{ govukInput({
             id: "otherexp",
             name: "otherexp",
+            value: "1100.00",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -161,6 +164,7 @@
               {
                 value: "plot",
                 text: "Burial plot",
+                checked: true,
                 conditional: {
                   html: plotHtml
                 }
@@ -168,6 +172,7 @@
               {
                 value: "burial",
                 text: "Burial costs",
+                checked: true,
                 conditional: {
                   html: burialHtml
                 }
@@ -210,6 +215,7 @@
               {
                 value: "otherexp",
                 text: "Other funeral expenses",
+                checked: true,
                 conditional: {
                   html: otherexpHtml
                 }
