@@ -1,0 +1,55 @@
+{% extends "layouts/main2.html" %}
+
+{% block pageTitle %}
+  Money to pay for the funeral – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v1/eligibility/evidence" method="post">
+
+      {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{{ govukDateInput({
+  id: "passport-issued",
+  namePrefix: "passport-issued",
+  fieldset: {
+    legend: {
+      text: "What is the date of the funeral?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  }
+}) }}
+
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

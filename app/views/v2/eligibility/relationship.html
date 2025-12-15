@@ -1,0 +1,75 @@
+{% extends "layouts/main2.html" %}
+
+{% block pageTitle %}
+  Money to pay for the funeral – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v1/eligibility/responsible" method="post">
+
+      <h1 class="govuk-heading-l">
+        What is the claimant's relationship to the deceased?
+      </h1>
+ 
+      {{ govukRadios({
+        name: "relationshiptodeceased",
+        values: data["relationshiptodeceased"],
+        fieldset: {
+          legend: {
+            text: ""
+          }
+        },
+        items: [
+          {
+            value: "childofdeceased",
+            text: "Partner"
+          },
+          {
+            value: "parentofdeceased",
+            text: "Child of deceased"
+          },
+          {
+            value: "parentofdeceased",
+            text: "Parent of deceased"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "crofdeceased",
+            text: "Another relative or friend",
+            hint: {
+              text: "This includes step-parents and step-children."
+            }
+          }
+        ]
+      }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

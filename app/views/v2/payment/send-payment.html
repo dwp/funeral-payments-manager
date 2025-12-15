@@ -1,0 +1,62 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  How much do you want to pay the Funeral Director? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v2/payment/sent" method="post">
+
+      <h1 class="govuk-heading-l">You are about to send payment</h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            {{ data['fd-name'] or "Funeral director" }}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ "£" + data['fdcost'] }}
+          </dd>
+          <!-- <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/v1/payment/how-much">Change<span class="govuk-visually-hidden"> name</span></a>
+          </dd> -->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Claimant
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £402.55
+          </dd>
+          <!-- <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+          </dd> -->
+        </div>
+      </dl>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Send payment
+        </button>
+        <a class="govuk-link" href="/v1/tasklist-blank">Cancel</a>
+      </div>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

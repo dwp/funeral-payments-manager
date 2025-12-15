@@ -1,0 +1,89 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  How much do you want to pay the Funeral Director? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/make-payment-answer-v2" method="post">
+
+      <h1 class="govuk-heading-l">Check payment amounts</h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            {{ data['fd-name'] or "Funeral director" }}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ "£" + data['fdcost'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/v1/payment/how-much">Change<span class="govuk-visually-hidden"> name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Claimant
+          </dt>
+          <dd class="govuk-summary-list__value">
+           £402.55
+          </dd>
+          <!-- <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+          </dd> -->
+        </div>
+      </dl>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "makepayment",
+        value: "makepayment",
+        fieldset: {
+          legend: {
+            text: "Do you want to make these payments now?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

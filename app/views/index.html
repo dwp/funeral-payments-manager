@@ -12,6 +12,84 @@
     </h1>
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Single payment journey
+            </span>
+          </h2>
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Start",
+            href: "/v3/deceased-nino"
+          }) }}
+
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+      
+         
+
+          <p class="govuk-body">Iterating the journey to only pay the funeral director for build one.</p>
+
+</div>
+
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Iterations from UR & new requirements
+            </span>
+          </h2>
+
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+      
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Start journey",
+            href: "/v2/deceased-nino"
+          }) }}
+
+          <p class="govuk-body">Iterating the journey based on UR recommendations and payment requirements.</p>
+
+
+        
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Quick links
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="/v2/tasklist-blank">Tasklist</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/v2/home">Homepage</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/v2/register-a-claim">Register a claim</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/v2/find-a-claim">Find a claim</a>
+      </li>
+    </ul>
+  </div>
+</details>
+
+</div>
+
+
+
+      
+
+      </div>
       <div class="govuk-accordion__section">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
@@ -19,15 +97,15 @@
               1st round of UR with FEP decision makers 
             </span>
           </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
           {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
-            text: "Start now",
-            href: "/v1/tasklist-blank",
-            isStartButton: true
+            text: "Start journey",
+            href: "/v1/tasklist-blank"
           }) }}
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
           <p class="govuk-body">W/c 22nd of September - This round focuses on the usability of individul tasks that are required to process a claim. This is not an end to end journey.</p>
 
 

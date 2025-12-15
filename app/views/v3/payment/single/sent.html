@@ -1,0 +1,39 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Payment sent – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/make-payment-answer-v3" method="post">
+
+      <!-- <h1 class="govuk-heading-l">Payment sent</h1> -->
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{{ govukPanel({
+  titleText: "Payment sent",
+  html: ""
+}) }}
+
+<br><p class="govuk-body">A letter has been sent out to claimant and {{ data['fd-name'] or "funeral director" }}.</p>
+
+<h2 class="govuk-heading-m">Funeral Expenses Payment</h2>
+
+<p class="govuk-body">You have issued payment of <b>£1767.55</b> to {{ data['fd-name'] or "funeral director" }}.</p>
+
+<p class="govuk-body">
+  <a href="/v3/tasklist-blank" class="govuk-link govuk-link--no-visited-state">Return to tasks</a>
+</p>
+    
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

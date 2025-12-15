@@ -1,0 +1,39 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Start a claim – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+ <h1 class="govuk-heading-l">Start a claim</h1>
+
+ <!-- <p class="govuk-body">Enter the deceased's National Insurance number that will be used as a payment reference.</p> -->
+
+
+
+    <form action="/v3/tasklist-blank" method="post">
+  
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="national-insurance-number">
+          Enter deceased's National Insurance number
+        </label>
+        <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="national-insurance-number" name="nationalInsuranceNumber" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint">
+      </div>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Start claim
+      </button>
+    
+    </form> 
+
+  </div>
+</div>
+
+
+{% endblock %}

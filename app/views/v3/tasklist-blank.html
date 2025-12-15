@@ -1,0 +1,326 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Claim for Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <h1 class="govuk-heading-l">{{ serviceName }}</h1> -->
+
+      <section class="dwp-quick-reference" aria-label="Case information">
+        <dl class="dwp-quick-reference__block">
+          <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+          <dd class="dwp-quick-reference__primary">[Deceased name]</dd>
+          <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National Insurance number:</dt>
+          <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+          <dt class="dwp-quick-reference__label govuk-visually-hidden">Claim status:</dt>
+          <dd class="dwp-quick-reference__status">
+            <!-- <strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong> -->
+          </dd>
+        </dl>
+      </section>
+      
+
+      <!-- <h2 class="govuk-heading-m">Registration</h2>
+
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-1-status">
+              Claimant details
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-2-status">
+              Deceased details
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+        </li>
+      </ul> -->
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Claim information</h2>
+
+      <ul class="govuk-task-list">
+        <!-- <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/v1/eligibility/benefits" aria-describedby="company-details-3-hint company-details-3-status">
+              Task 1
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+          <div class="govuk-task-list__status" id="company-details-3-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
+            </strong>
+          </div>
+        </li> -->
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/v3/money/available" aria-describedby="company-details-4-status">
+              Deceased's estate
+            </a>
+          </div>
+
+          {% if (data['moneyavailable'] == "yes" or data['moneyavailable'] == "no") %}
+
+            <div class="govuk-task-list__status" id="company-details-1-status">
+              Completed
+            </div>
+
+
+            {% else %}
+
+            <div class="govuk-task-list__status" id="company-details-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Incomplete
+              </strong>
+            </div>
+
+            {% endif %}
+
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/v3/funeral/type" aria-describedby="company-details-5-status">
+             Funeral costs
+            </a>
+          </div>
+
+          {% if (data['funeral-costs'].length > 0) %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+          
+            {% else %}
+
+            <div class="govuk-task-list__status" id="company-details-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Incomplete
+              </strong>
+            </div>
+
+            {% endif %}
+            
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/v3/award/summary" aria-describedby="company-details-5-status">
+             Confirm award amount
+            </a>
+          </div>
+
+          
+          {% if (data['confirmaward'] == "yes" and data['funeral-costs'].length > 0) %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+
+          {% elseif (data['funeral-costs'].length > 0) %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">
+               Incomplete
+              </strong>
+            </td>      
+          </div>
+
+          {% else %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Cannot start yet
+              </strong>
+            </td>      
+          </div>
+
+          {% endif %}
+
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/v3/payee/director-details" aria-describedby="company-details-5-status">
+             Payment details
+            </a>
+          </div>
+
+          {% if (data['fd-name']) %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+
+          {% elseif (data['confirmaward'] == "yes" ) %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">
+               Incomplete
+              </strong>
+            </td>      
+          </div>
+
+          {% else %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Cannot start yet
+              </strong>
+            </td> 
+          </div>
+
+          {% endif %}
+          
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/v3/payment/single/check-amount" aria-describedby="company-details-5-status">
+             Send payment
+            </a>
+          </div>
+          
+          {% if (data['makepayment'] == "yes") %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+
+          {% elseif (data['fd-name']) %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">
+               Incomplete
+              </strong>
+            </td>      
+          </div>
+
+          {% else %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Cannot start yet
+              </strong>
+            </td> 
+          </div>
+
+          {% endif %}
+
+        </li>
+
+
+
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/v3/debt/refer" aria-describedby="company-details-5-status">
+             Debt management
+            </a>
+          </div>
+
+          {% if (data['refer'] == "yes" or data['refer'] == "no") %}
+
+          <div class="govuk-task-list__status" id="company-details-1-status">
+            Completed
+          </div>
+
+          {% elseif (data['makepayment'] == "yes") %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Incomplete
+            </strong>
+          </div>
+
+          {% else %}
+
+          <div class="govuk-task-list__status" id="company-details-2-status">
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Cannot start yet
+              </strong>
+            </td> 
+          </div>
+
+          {% endif %}
+ 
+
+        </li>
+      </ul>
+
+     
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+    <!-- {% from "timeline/macro.njk" import dwpTimeline %}
+
+<h2 class="govuk-heading-m">Claim history</h2>
+<br>
+{{
+        dwpTimeline({ 
+            items: [               
+               
+                {
+                    title:  "[enter text]",
+                    byline:  "[agent name]",
+                    date:  "26 April 2024 at 12:42pm"
+                },
+               
+              
+                {
+                    title:  "Funeral costs added",
+                    byline:  "[agent name]",
+                    date:  "21 April 2024 at 1:12pm"
+                },
+                {
+                    title:  "Eligibility complete",
+                    byline:  "[agent name]",
+                    date:  "21 April 2024 at 10:15am"
+                },
+                {
+                    title:  "Deceased details added",
+                    byline:  "[agent name]",
+                    date:  "19 April 2024 at 10:58am"
+                },
+               
+                {
+                    title:  "Claimant details added",
+                    byline:  "[agent name]",
+                    date:  "28 March 2024 at 9:12am"
+                },
+                {
+                    title:  "Application received",
+                    date:  "12 March 2024 at 3:00pm"
+                }
+        ]
+        })
+}} -->
+
+</div>
+
+  </div>
+{% endblock %}

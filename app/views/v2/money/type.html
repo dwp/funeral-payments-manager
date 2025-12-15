@@ -1,0 +1,256 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Money to pay for the funeral – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v2/money/cya" method="post">
+
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+          {% from "govuk/components/input/macro.njk" import govukInput %}
+          
+          {% set cashHtml %}
+          {{ govukInput({
+            id: "cash",
+            name: "cash",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set accountsHtml %}
+          {{ govukInput({
+            id: "accounts",
+            name: "accounts",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set isaHtml %}
+          {{ govukInput({
+            id: "isa",
+            name: "isa",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set insuranceHtml %}
+          {{ govukInput({
+            id: "insurance",
+            name: "insurance",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set pensionHtml %}
+          {{ govukInput({
+            id: "pension",
+            name: "pension",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set clubHtml %}
+          {{ govukInput({
+            id: "club",
+            name: "club",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set warHtml %}
+          {{ govukInput({
+            id: "war",
+            name: "war",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set planHtml %}
+          {{ govukInput({
+            id: "plan",
+            name: "plan",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set otherHtml %}
+          {{ govukInput({
+            id: "other",
+            name: "other",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {{ govukCheckboxes({
+            name: "moneytype",
+            value: "moneytype",
+            fieldset: {
+              legend: {
+                text: "Enter money from deceased's etate",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Select all that apply."
+            },
+            items: [
+              {
+                value: "cash",
+                text: "Cash",
+                conditional: {
+                  html: cashHtml
+                }
+              },
+              {
+                value: "accounts",
+                text: "Bank accounts",
+                conditional: {
+                  html: accountsHtml
+                }
+              },
+              {
+                value: "isa",
+                text: "ISAs",
+                conditional: {
+                  html: isaHtml
+                }
+              },
+              {
+                value: "insurance",
+                text: "Life insurance policy",
+                conditional: {
+                  html: insuranceHtml
+                }
+              },
+              {
+                value: "pension",
+                text: "Occupational pension",
+                conditional: {
+                  html: pensionHtml
+                }
+              },
+              {
+                value: "club",
+                text: "Burial club",
+                conditional: {
+                  html: clubHtml
+                }
+              },
+              {
+                value: "war",
+                text: "War Pension Funeral grant",
+                conditional: {
+                  html: warHtml
+                }
+              },
+              {
+                value: "plan",
+                text: "Pre-paid funeral plan",
+                hint: {
+                  text: "Paid direct to deceased's estate"
+                },
+                conditional: {
+                  html: planHtml
+                }
+              },
+              {
+                value: "other",
+                text: "Other money",
+                conditional: {
+                  html: otherHtml
+                }
+              }
+            ]
+          }) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

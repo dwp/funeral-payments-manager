@@ -1,0 +1,66 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Money to pay for the funeral – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/who-to-pay-answer-v3" method="post">
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whotopay",
+  values: data["whotopay"],
+  fieldset: {
+    legend: {
+      text: "Who do you want to pay?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "director",
+      text: "Funeral director"
+    },
+    {
+      value: "claimant",
+      text: "Claimant"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "split",
+      text: "Both funeral director and claimant"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

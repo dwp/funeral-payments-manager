@@ -1,0 +1,61 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Funeral director details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v3/payee/director-address" method="post">
+
+      <h1 class="govuk-heading-l">
+        Funeral director details
+      </h1>
+
+      {{ govukInput({
+        label: {
+          text: "Business name of funeral director"
+        },
+        classes: "govuk-!-width-full",
+        id: "fd-name",
+        name: "fd-name", 
+        value: data['fd-name']
+      }) }}
+    
+      {{ govukInput({
+        label: {
+          text: "Reference number on funeral bill (if there is one)"
+        },
+        classes: "govuk-input--width-20",
+        id: "ref-num",
+        name: "ref-num", 
+        value: data[ ref-num']
+      }) }}
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+        
+      </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}
