@@ -16,7 +16,7 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
 {{ govukPanel({
-  titleText: "Payment sent",
+  titleText: "Claim complete",
   html: ""
 }) }}
 
@@ -24,7 +24,7 @@
 
 <h2 class="govuk-heading-m">Funeral Expenses Payment</h2>
 
-<p class="govuk-body">You have issued payment of <b>£1767.55</b> to {{ data['fd-name'] or "funeral director" }}.</p>
+<p class="govuk-body"><b>£1767.55</b> will be paid to {{ data['fd-name'] or "funeral director" }}.</p>
 
 <p class="govuk-body">
   <a href="/v3/tasklist-blank" class="govuk-link govuk-link--no-visited-state">Return to tasks</a>
