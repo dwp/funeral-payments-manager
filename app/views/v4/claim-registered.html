@@ -1,0 +1,32 @@
+{% extends "layouts/main4.html" %}
+
+{% block pageTitle %}
+  Claim registered – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/v4/check-details" method="post">
+
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+ {{ govukPanel({
+   titleText: "Claim registered",
+   html: "AB 12 34 56 C"
+ }) }}
+
+ <br><p class="govuk-body">[Should we link directly to tasklist OR take them back to the system homepage?]</p>
+
+ <p class="govuk-body">
+  <a href="/index" class="govuk-link govuk-link--no-visited-state">Exit journey</a>
+</p>
+
+</form>
+
+  </div>
+</div>
+
+{% endblock %}

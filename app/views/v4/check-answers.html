@@ -1,0 +1,120 @@
+{% extends "layouts/main4.html" %}
+
+{% block pageTitle %}
+  Check answers before registering claim – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <form action="/v4/claim-registered" method="post" novalidate>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">Check answers before registering claim</h1>
+        <h2 class="govuk-heading-m">Claimant details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              AB 12 34 56 C
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+             John Smith
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Update phone number 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">Yes</p>
+              <p class="govuk-body">07123 45678</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Do they have partner
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+        </dl>
+
+
+        <h2 class="govuk-heading-m">Deceased details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+             AB 65 43 21 C
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            Mark Smith
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Application details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Date of application
+            </dt>
+            <dd class="govuk-summary-list__value">
+             14 January 2025
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+        </dl>
+  
+          <input type="hidden" name="answers-checked" value="true">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Register claim
+          </button>
+        </form>
+      </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

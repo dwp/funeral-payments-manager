@@ -17,19 +17,40 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Single payment journey
+               Registration journey
             </span>
           </h2>
           {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
-            text: "Start",
+            text: "Start claim",
+            href: "/v4/start-claim"
+          }) }}
+          
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+          <p class="govuk-body">This flow is to test the 'happy path' registration journey that is carried out by AA's.</p>
+
+</div>
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Single payment journey
+            </span>
+          </h2>
+          
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Start journey",
             href: "/v3/deceased-nino"
           }) }}
 
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-      
          
 
           <p class="govuk-body">Iterating the journey to only pay the funeral director for build one.</p>
