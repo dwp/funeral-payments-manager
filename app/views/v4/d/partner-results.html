@@ -1,0 +1,89 @@
+{% extends "layouts/main4.html" %}
+
+{% block pageTitle %}
+  Partner results – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v4/d/deceased-search" method="post">
+
+ <h1 class="govuk-heading-l">Search for partner</h1>
+
+ <div class="moj-search">
+    <div class="govuk-form-group">
+      <label class="govuk-label moj-search__label" for="search">
+        Enter their partner's National Insurance number
+      </label>
+      <input class="govuk-input govuk-input--width-10 moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint" value= CD123556E>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" 
+      style= "margin-left: 6px;">
+        Search
+      </button>
+    </div>
+</div>
+
+<h2 class="govuk-heading-m">Partner details</h2>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  classes: "govuk-summary-list--no-border",
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Susan Smith"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "10 July 1982"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "72 Guild Street<br>London<br>SE23 6FH"
+      }
+    },
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        html: '<p class="govuk-body">07123 45678</p>'
+      }
+    }
+  ]
+}) }}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layouts/main4.html" %}
+
+{% block pageTitle %}
+  Why National Insurance number not available – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/v4/d/child-details" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        classes: "govuk-radios",
+        name: "deceased-no-nino",
+        values: data["deceased-no-nino"],
+        fieldset: {
+          legend: {
+            text: "Why is the National Insurance number for deceased not available?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "england",
+          text: "They are from outside the UK"
+        },
+        {
+          value: "scotland",
+          text: "They are a child"
+        },
+        {
+          value: "wales",
+          text: "National Insurance number not yet allocated"
+        },
+        {
+          value: "northern-ireland",
+          text: "Not able to trace National Insurance number"
+        }
+      ]
+    }) }}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

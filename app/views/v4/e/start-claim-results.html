@@ -1,0 +1,94 @@
+{% extends "layouts/main4.html" %}
+
+{% block pageTitle %}
+  Claimant results – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v4/e/check-details" method="post">
+
+ <h1 class="govuk-heading-l">Start a claim</h1>
+
+ <div class="moj-search">
+    <div class="govuk-form-group">
+      <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
+        Search for claimant
+      </label>
+      <div id="search-hint" class="govuk-hint moj-search__hint ">
+        Enter claimant's National Insurance number
+      </div>
+      <input class="govuk-input govuk-input--width-10 moj-search__input " id="search" name="claimantnino" type="search" aria-describedby="search-hint" value="{{ data.claimantnino }}">
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" 
+      style= "margin-left: 6px;">
+        Search
+      </button>
+    </div>
+</div>
+
+<!-- p class="govuk-body">John Smith</b><br>25 January 1985<br>35 Main Road</p> -->
+
+<h2 class="govuk-heading-m">Claimant details</h2>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  classes: "govuk-summary-list--no-border",
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Dawn Mira"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "30 August 1980"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "12 Coin Avenue<br>Manchester<br>M14 2PD"
+      }
+    },
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        html: '<p class="govuk-body">07245095576</p>'
+      }
+    }
+  ]
+}) }}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

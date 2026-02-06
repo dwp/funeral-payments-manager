@@ -1,0 +1,46 @@
+{% extends "layouts/main4.html" %}
+
+{% block pageTitle %}
+  Date of application – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v4/d/check-answers" method="post">
+
+ {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+ {{ govukDateInput({
+   id: "applicationdate",
+   namePrefix: "applicationdate",
+   fieldset: {
+     legend: {
+       text: "Enter date of application",
+       isPageHeading: true,
+       classes: "govuk-fieldset__legend--l"
+     }
+   }
+ }) }}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

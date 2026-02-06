@@ -1,0 +1,102 @@
+{% extends "layouts/main4.html" %}
+
+{% block pageTitle %}
+  Check claimant contact details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/check-details-answer-v4-b" method="post">
+
+ <h1 class="govuk-heading-l">Check Beth Long's contact details</h1>
+
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  classes: "govuk-summary-list--no-border",
+  rows: [
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        html: '<p class="govuk-body">07563478212</p>'
+      }
+    }
+  ]
+}) }}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set phoneHtml %}
+{{ govukInput({
+  id: "contact-by-phone",
+  name: "contactByPhone",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-half",
+  label: {
+    text: "Phone number"
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  name: "updatenumber",
+  value: "updatenumber",
+  fieldset: {
+    legend: {
+      text: "Do you need to update their phone number?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+        html: phoneHtml
+      }
+    },
+    {
+      value: "no",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "appointee",
+      text: "Someone is applying on behalf of the claimant",
+      hint: {
+        text: "For example an appointee or power of attorney"
+      }
+    }
+  ]
+}) }}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

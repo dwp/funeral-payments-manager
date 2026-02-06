@@ -1,0 +1,104 @@
+{% extends "layouts/main4.html" %}
+
+{% block pageTitle %}
+  Deceased results – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v4/e/application-date" method="post">
+
+ <h1 class="govuk-heading-l">Search for deceased</h1>
+
+ <div class="moj-search">
+    <div class="govuk-form-group">
+      <label class="govuk-label moj-search__label" for="search">
+        Enter deceased's National Insurance number
+      </label>
+      <input class="govuk-input govuk-input--width-10 moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint" value="{{ data.deceasednino }}">
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" 
+      style= "margin-left: 6px;">
+        Search
+      </button>
+    </div>
+</div>
+
+<h2 class="govuk-heading-m">Deceased details</h2>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  classes: "govuk-summary-list--no-border",
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Mary Jane"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "1 December 1965"
+      }
+    },
+    {
+      key: {
+        text: "Date of death"
+      },
+      value: {
+        html: '<p class="govuk-body">5 October 2025 <strong class="govuk-tag govuk-tag--green" style="margin-left: 10px;">Verified</strong></p>'
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "40 Whistlestop Street<br>York<br>YO12 2LB"
+      }
+    },
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        html: '<p class="govuk-body">07123 45678</p>'
+      }
+    }
+  ]
+}) }}
+
+
+<!-- <span style="color: #6F777B; float: right; font-size: 0.7em; margin: 0.4em 0 0; position: relative; margin-left: auto;">
+  <img src="/public/images/icon-verified.svg" style="position: absolute; top: 0; left: -1.3em; width: 1em; height: 1.1em;" />
+  Verified
+</span> -->
+
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

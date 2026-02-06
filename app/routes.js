@@ -16,4 +16,12 @@ require('./routes/v2.js')(router);
 
 require('./routes/v3.js')(router);
 
-require('./routes/v4.js')(router);
+require('./routes/v4a.js')(router);
+
+require('./routes/v4b.js')(router);
+
+require('./routes/v4c.js')(router);
+
+require('./routes/v4d.js')(router);
+
+require('./routes/v4e.js')(router);
