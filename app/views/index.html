@@ -17,7 +17,30 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-               Registration journey
+               Design review: Tasks for making payment
+            </span>
+          </h2>
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Start",
+            href: "/v5/claimant-nino"
+          }) }}
+          
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+          <p class="govuk-body">Includes change to flow where we do not capture any FD details if we are not paying them.</p>
+ 
+
+
+</div>
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+               2nd round of UR: Registration journey
             </span>
           </h2>
           {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -131,7 +154,7 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              1st round of UR with FEP decision makers 
+              1st round of UR: Making a split payment
             </span>
           </h2>
         </div>

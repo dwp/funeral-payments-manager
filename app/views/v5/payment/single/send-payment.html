@@ -1,0 +1,49 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  How much do you want to pay the Funeral Director? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v5/payment/single/sent" method="post">
+
+      <h1 class="govuk-heading-l">You are about to send payment</h1>
+
+      <dl class="govuk-summary-list govuk-summary-list--no-border">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            {{ data['fd-name'] or "Funeral director" }}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £1767.55
+          </dd>
+        </div>
+      
+      </dl>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Send payment
+        </button>
+        <a class="govuk-link" href="/v1/tasklist-blank">Cancel</a>
+      </div>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -25,3 +25,5 @@ require('./routes/v4c.js')(router);
 require('./routes/v4d.js')(router);
 
 require('./routes/v4e.js')(router);
+
+require('./routes/v5.js')(router);

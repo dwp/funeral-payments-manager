@@ -1,0 +1,70 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Payment sent – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/make-payment-answer-v5" method="post">
+
+      <!-- <h1 class="govuk-heading-l">Payment sent</h1> -->
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{{ govukPanel({
+  titleText: "Claim complete",
+  html: ""
+}) }}
+
+<br><p class="govuk-body">A letter has been sent out to claimant and {{ data['fd-name'] or "funeral director" }}.</p>
+
+<h2 class="govuk-heading-m">Funeral Expenses Payment</h2>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      {{ data['fd-name'] or "Funeral director" }}
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ "£" + data['fdcost'] }}
+    </dd>
+    <!-- <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="/v1/payment/how-much">Change<span class="govuk-visually-hidden"> name</span></a>
+    </dd> -->
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Claimant
+    </dt>
+    <dd class="govuk-summary-list__value">
+      £402.55
+    </dd>
+    <!-- <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+    </dd> -->
+  </div>
+</dl><br>
+
+<p class="govuk-body">
+  <a href="/index" class="govuk-link govuk-link--no-visited-state">Return to home</a>
+</p>
+
+<!-- <h2 class="govuk-heading-m">What to do next</h2>
+
+<p class="govuk-body">
+  <a href="/v5/debt/refer" class="govuk-link govuk-link--no-visited-state">Abandon claim or refer to Debt Management</a>
+</p> -->
+
+
+      
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

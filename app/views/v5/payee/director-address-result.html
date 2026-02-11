@@ -1,0 +1,76 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Funeral director details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v5/payee/director-bank" method="post">
+
+      <h1 class="govuk-heading-l">
+        Address of funeral director
+      </h1>
+
+      <h2 class="govuk-heading-m">Postcode</h2>
+      <p class="govuk-body">{{ data['fd-address-postcode'] }}&emsp;<a href="home-address-postcode" class="govuk-link">Change</a>
+      </p>
+      <div class="govuk-form-group">
+        <label class="govuk-heading-m" for="address">
+          Select an address
+        </label>
+    
+          {{ govukSelect({
+            id: "home-address-select",
+            name: "home-address-select",
+            items: [
+            {value:"", text : "5 addresses found"},
+            {value:"2 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"2 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"},
+            {value:"4 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"4 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"},
+            {value:"6 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"6 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"},
+            {value:"8 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"8 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"}
+            ]
+          }) }}
+    
+        <!-- <select class="govuk-select" id="address" name="address">
+          <option value="47089597">60 addresses found</option>
+          <option value="2 TURNBERRY RED HOUSE FARM, WHITLEY BAY">2 TURNBERRY, RED HOUSE FARM, Cullercoats</option>
+        </select> -->
+      </div>
+  
+ 
+      <p class="govuk-body">
+        <a href="/v5/payee/director-address-manual" class="govuk-link">
+          Enter address manually
+        </a>
+      </p><br>
+
+
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+
+
+       
+        
+      </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

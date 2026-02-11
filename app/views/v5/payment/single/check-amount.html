@@ -1,0 +1,67 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  How much do you want to pay the Funeral Director? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/make-payment-answer-single-v5" method="post">
+
+      <h1 class="govuk-heading-l">Check payment amount</h1>
+
+      <p class="govuk-body">The award amount for this Funeral Expenses Payment is <b>£1767.55</b>.</p>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {% set funeraldirectorname = data['fd-name'] or "the funeral director"%}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "makepayment",
+        value: "makepayment",
+        fieldset: {
+          legend: {
+            text: "Do you want to pay " + funeraldirectorname + " now?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+    
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}
