@@ -1,0 +1,150 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v6/eligibility/cya" method="post">
+
+ 
+      <!-- {% if (data['youhavepartner'] == "yes") %}
+
+        {{ govukCheckboxes({
+          name: "benefits",
+          values: data["benefits"],
+          fieldset: {
+            legend: {
+              text: "What benefits is the claimant or their partner getting?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Universal Credit",
+              text: "Universal Credit"
+            },
+            {
+              value: "Income Support",
+              text: "Income Support"
+            },
+            {
+              value: "Income-based Jobseeker's Allowance",
+              text: "Income-based Jobseeker's Allowance"
+            },
+            {
+              value: "Income-related Employment and Support Allowance",
+              text: "Income-related Employment and Support Allowance"
+            },
+            {
+              value: "Pension Credit",
+              text: "Pension Credit"
+            },
+            {
+              value: "Housing Benefit",
+              text: "Housing Benefit"
+            },
+            {
+              value: "Support for Morgage Interest",
+              text: "Support for Mortgage Interest"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "no",
+              text: "None",
+              behaviour: "exclusive"
+            }
+          ]
+        }) }}
+
+        {% else %} -->
+
+          {{ govukCheckboxes({
+            name: "benefits",
+            values: data["benefits"],
+            fieldset: {
+              legend: {
+                text: " What benefits is the claimant getting?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Select all that apply"
+            },
+            items: [
+              {
+                value: "Universal Credit",
+                text: "Universal Credit"
+              },
+              {
+                value: "Income Support",
+                text: "Income Support"
+              },
+              {
+                value: "Income-based Jobseeker's Allowance",
+                text: "Income-based Jobseeker's Allowance"
+              },
+              {
+                value: "Income-related Employment and Support Allowance",
+                text: "Income-related Employment and Support Allowance"
+              },
+              {
+                value: "Pension Credit",
+                text: "Pension Credit"
+              },
+              {
+                value: "Housing Benefit",
+                text: "Housing Benefit"
+              },
+              {
+                value: "Support for Morgage Interest",
+                text: "Support for Mortgage Interest"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "no",
+                text: "None",
+                behaviour: "exclusive"
+              }
+            ]
+          }) }}
+
+          <!-- {% endif %} -->
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

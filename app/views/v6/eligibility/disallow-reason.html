@@ -1,0 +1,83 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+Is the claimant eligible for a Funeral Expenses Payment? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/disallow-reason-v6" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+classes: "govuk-radios",
+name: "disallowreason",
+values: data["disallowreason"],
+fieldset: {
+  legend: {
+    text: "Why are you disallowing this claim?",
+    isPageHeading: true,
+    classes: "govuk-fieldset__legend--l"
+  }
+},
+
+items: [
+  {
+    value: "Award has already been made for deceased",
+    text: "Award has already been made for deceased"
+  },
+  {
+    value: "Claimant has not provided sufficient evidence",
+    text: "Claimant has not provided sufficient evidence "
+  },
+  {
+    value: "Claimant does not receive qualifying benefits",
+    text: "Claimant does not receive qualifying benefits "
+  },
+  {
+    value: "Funeral was not in the UK, EEA or Switzerland",
+    text: "Funeral was not in the UK, EEA or Switzerland"
+  },
+  {
+    value: "Deceased did not usually live in the UK",
+    text: "Deceased did not usually live in the UK"
+  },
+  {
+    value: "Funeral was more than 6 months ago",
+    text: "Funeral was more than 6 months ago"
+  },
+  {
+    value: "Claimant is not responsible for paying for the funeral",
+    text: "Claimant is not responsible for paying for the funeral"
+  }
+]
+}) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

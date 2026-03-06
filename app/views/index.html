@@ -17,9 +17,47 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+               3rd round of UR: Registration, eligibility & payment
+            </span>
+          </h2>
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "A",
+            href: "/v6/reg/start-claim"
+          }) }}
+
+          {{ govukButton({
+            text: "B",
+            href: "/v6/b/find-a-claim"
+          }) }}
+
+          {{ govukButton({
+            text: "C",
+            href: "/v6/c/find-a-claim"
+          }) }}
+          
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+          <p class="govuk-body">W/c 9th March 26 - iterated registration journey through to making payment. <br> <br> We are testing a new eligibility task, flagging an action to a DM & updated funeral costs task.</p>
+ 
+
+
+</div>
+
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
                Design review: Tasks for making payment
             </span>
           </h2>
+          
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
           {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
@@ -27,10 +65,8 @@
             href: "/v5/claimant-nino"
           }) }}
           
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
-          <p class="govuk-body">Includes change to flow where we do not capture any FD details if we are not paying them.</p>
+          <p class="govuk-body">Reviewed 16 Feb 26 - Includes change to flow where we do not capture any FD details if we are not paying them.</p>
  
 
 
@@ -43,6 +79,9 @@
                2nd round of UR: Registration journey
             </span>
           </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
           {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
@@ -65,11 +104,8 @@
             text: "E",
             href: "/v4/e/start-claim"
           }) }}
-          
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
-          <p class="govuk-body">This flow is to test the 'happy path' registration journey that is carried out by AA's.</p>
+          <p class="govuk-body">W/c 9th Feb 26 - This flow is to test the 'happy path' registration journey that is carried out by AA's.</p>
 
 </div>
 
@@ -145,10 +181,6 @@
 
 </div>
 
-
-
-      
-
       </div>
       <div class="govuk-accordion__section">
         <div class="govuk-accordion__section-header">
@@ -166,7 +198,8 @@
             text: "Start journey",
             href: "/v1/tasklist-blank"
           }) }}
-          <p class="govuk-body">W/c 22nd of September - This round focuses on the usability of individul tasks that are required to process a claim. This is not an end to end journey.</p>
+
+          <p class="govuk-body">W/c 22nd of Sept 25 - This round focuses on the usability of individul tasks that are required to process a claim. This is not an end to end journey.</p>
 
 
         

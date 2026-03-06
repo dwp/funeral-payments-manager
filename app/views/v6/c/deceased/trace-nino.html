@@ -1,0 +1,101 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+Are you able to find the deceased National Insurance number? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/trace-nino-answer-v6-c" method="post">
+
+ <h1 class="govuk-heading-l">Deceased's details</h1>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  classes: "govuk-summary-list--no-border",
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Terry Mira"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "30 August 1980"
+      }
+    },
+    {
+      key: {
+        text: "Date of death"
+      },
+      value: {
+        html: '<p class="govuk-body">12 December 2025'
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "12 Coin Avenue<br>Manchester<br>M14 2PD"
+      }
+    }
+  ]
+}) }}
+
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "trace-nino",
+  values: data["trace-nino"],
+  fieldset: {
+    legend: {
+      text: "Is the deceased's National Insurance number available?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+  {
+    value: "Yes",
+    text: "Yes"
+  },
+  {
+    value: "No",
+    text: "No"
+  }
+]
+}) }}
+
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

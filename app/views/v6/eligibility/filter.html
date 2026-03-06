@@ -1,0 +1,76 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+Eligibility for a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/eligibility-filter-v6" method="post">
+
+      <h1 class="govuk-heading-l">Eligibility for a Funeral Expenses Payment</h1>
+
+      <p>The claimant would not be eligible for payment if the:</p>
+      <ul class='govuk-list govuk-list--bullet'>
+        <li>award has already been made for deceased</li>
+        <li>claimant has not provided sufficient evidence</li>
+        <li>claimant does not receive qualifying benefits</li>
+        <li>funeral was not in the UK, EEA or Switzerland</li>
+        <li>deceased did not usually live in the UK</li>
+        <li>funeral was more than 6 months ago</li>
+        <li>claimant is not responsible for paying for the funeral</li>
+      </ul><br>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+classes: "govuk-radios--inline",
+name: "eligibilefilter",
+values: data["eligibilefilter"],
+fieldset: {
+  legend: {
+    text: "Is the claimant eligible for a Funeral Expenses Payment?",
+    isPageHeading: true,
+    classes: "govuk-fieldset__legend--m"
+  }
+},
+
+items: [
+  {
+    value: "yes",
+    text: "Yes"
+  },
+  {
+    value: "no",
+    text: "No"
+  }
+]
+}) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

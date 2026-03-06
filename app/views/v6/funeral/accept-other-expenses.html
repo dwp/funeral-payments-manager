@@ -1,0 +1,84 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+Other funeral expenses – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v6/funeral/cya" method="post">
+
+      {% set adjustotherHtml %}
+      {{ govukInput({
+        id: "adjustother",
+        name: "adjustother",
+        spellcheck: false,
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        label: {
+          text: "Enter exact amount"
+        }
+      }) }}
+      {% endset -%}
+
+      <!-- <h1 class="govuk-heading-l">Funeral costs accepted</h1> -->
+
+      {{ govukRadios({
+        name: "acceptother",
+        fieldset: {
+          legend: {
+            text: "Award £919 for other funeral expenses?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "As other funeral expenses requested is under £1000, any money deducted from the necessary costs can be added to this, up to the cap amount."
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "",
+            text: "No, change amount",
+            conditional: {
+              html: adjustotherHtml
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "abroad",
+            text: "Award £120, pre-paid funeral plan"
+          }
+        ]
+      }) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

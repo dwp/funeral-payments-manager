@@ -1,0 +1,79 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+Why is the claimant not responsible for paying for the funeral? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v6/eligibility/about-to-disallow" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+classes: "govuk-radios",
+name: "whynotresponsible",
+values: data["whynotresponsible"],
+fieldset: {
+  legend: {
+    text: "Why is the claimant not responsible for paying for the funeral?",
+    isPageHeading: true,
+    classes: "govuk-fieldset__legend--l"
+  }
+},
+
+items: [
+  {
+    value: "There is a surviving partner",
+    text: "There is a surviving partner"
+  },
+  {
+    value: "There is a relative who is closer",
+    text: "There is a relative who is closer"
+  },
+  {
+    value: "Claimant is not the partner, a close relative or friend",
+    text: "Claimant is not the partner, a close relative or friend"
+  },
+  {
+    value: "There is a parent or adult child who does not receive qualifying benefits",
+    text: "There is a parent or adult child who does not receive qualifying benefits"
+  },
+  {
+    value: "There is a close relative who does not receive qualifying benefits",
+    text: "There is a close relative who does not receive qualifying benefits"
+  },
+  {
+    value: "There is a close relative who has more capital",
+    text: "There is a close relative who has more capital"
+  }
+]
+}) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

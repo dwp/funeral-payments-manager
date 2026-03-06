@@ -1,0 +1,33 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+  Claim registered – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/v6/reg/check-details" method="post">
+
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+ {{ govukPanel({
+   titleText: "Claim registered"
+ }) }}
+
+ <br><p class="govuk-body">You have registered Mark John Smith's claim for a Funeral Expenses Payment.</p>
+
+ <h2 class="govuk-heading-m">What to do next</h2>
+
+ <p class="govuk-body">
+  <a href="/v6/tasklist" class="govuk-link govuk-link--no-visited-state">Enter claim information</a>
+</p>
+
+</form>
+
+  </div>
+</div>
+
+{% endblock %}
