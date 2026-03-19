@@ -1,83 +1,59 @@
 {#
-    For guidance on how to use layouts see:
-    https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
-    #}
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
     
-    {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
-    
-    {% block header %}
-    {% from "internal-service-header/macro.njk" import dwpHeader %}
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+{% from "internal-service-header/macro.njk" import dwpHeader %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
 
-    <header data-module="govuk-header" class="dwp-header" style="background: #0b0c0c;">
-      <div class="dwp-header__content govuk-width-container">
-        <div class="dwp-header__service-name">
-          <a href="/index" class="dwp-header__link">Manage a Funeral Expenses Payment</a>
-        </div>
-        <nav class="dwp-header-navigation"
-          aria-label="Primary">
-          <button type="button" class="dwp-header-navigation__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
-            Menu
-          </button>
-          <ul id="navigation" class="dwp-header-navigation__list">
-            <!-- <li class="dwp-header-navigation__item">
-              <a
-                href="/v1/home">
-                Home
-              </a>
-            </li> -->
-            <li class="dwp-header-navigation__item">
-              <a
-                href="/v6/claimant-nino">
-              Start a claim
-              </a>
-            </li>
-            <li class="dwp-header-navigation__item">
-              <a
-                href="/v6/find-a-claim">
-                Find a claim
-              </a>
-            </li>
-            <!-- <li class="dwp-header-navigation__item">
-              <a
-                href="#">
-                Item 4
-              </a>
-            </li> -->
-          </ul>
-        </nav>
-      </div>
-    </header>
-    
-    <!-- <header class="dwp-header" style="background: #0b0c0c;">
-        <div class="dwp-header__content govuk-width-container">
-          <div class="dwp-header__service-name">
-            <a href="#" class="dwp-header__link">Service name</a>
-          </div>
-        </div>
-      </header> -->
 
-      
-    
-    {% endblock %}
+{% block header %}
 
+{{
+  dwpHeader({
+      serviceName: "Manage a Funeral Expenses Payment",
+      serviceHref: '/',
+      container: true,
+      navigation: {
+        items: [
+            {
+                href: "/v6/reg/start-claim",
+                text: "Start a claim"
+            },
+            {
+                href: "/v6/find-a-claim",
+                text: "Find a claim"
+            }
+        ]
+    }  
+  })
+}}
+
+{% endblock %}
 
 {% block footer %}
 
-<footer class="dwp-footer" style="border-top: 1px solid #b1b4b6;">
-    <div class="govuk-width-container">
-      <h2 class="govuk-visually-hidden">About this website</h2>
-      <ul class="dwp-footer__inline-list">
-        <li class="dwp-footer__inline-list-item">
-          <a class="dwp-footer__link" href="">Accessibility statement</a>
-        </li>
-        <li class="dwp-footer__inline-list-item">
-          <a class="dwp-footer__link" href="">Privacy</a>
-        </li>
-        <li class="dwp-footer__inline-list-item">
-          <a class="dwp-footer__link" href="/manage-prototype/clear-data">Clear data</a>
-        </li>
-      </ul>
-    </div>
-  </footer>
+  {{
+    dwpFooter({
+        meta: {
+            visuallyHiddenTitle: "About this website",
+            items: [
+            {
+                href: "#",
+                text: "Accessibility statement"
+            },
+            {
+                href: "#",
+                text: "Privacy"
+            },
+            {
+                href: "/manage-prototype/clear-data",
+                text: "Clear data"
+            }
+            ]
+        }
+    }) 
+  }}
 
 {% endblock %}

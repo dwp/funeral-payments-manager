@@ -2,7 +2,7 @@
   "serviceName": "Manage a Funeral Expenses Payment",
   "plugins": {
     "govuk-frontend": {
-      "rebrand": true
+      "rebrand": false
     }
   }
 }
