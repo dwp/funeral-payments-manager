@@ -1,0 +1,53 @@
+{% extends "layouts/main7.html" %}
+
+{% block pageTitle %}
+  No deceased found – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="" method="post">
+
+ {# <h1 class="govuk-heading-l">Search for the claimant</h1> #}
+
+ {# <div class="moj-search">
+    <div class="govuk-form-group">
+      <label class="govuk-label moj-search__label" for="search">
+        Claimant's National Insurance number
+      </label>
+      <input class="govuk-input govuk-input--width-10 moj-search__input" id="search" name="claimantnino" type="search" aria-describedby="search-hint" value="{{ data.claimantnino }}">
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" 
+      style= "margin-left: 6px;">
+        Search
+      </button>
+    </div>
+</div> #}
+
+<!-- p class="govuk-body">John Smith</b><br>25 January 1985<br>35 Main Road</p> -->
+
+<h2 class="govuk-heading-l">No deceased found</h2>
+
+<p class="govuk-body">We could not find a record for AB 34 56 21 L.</p>
+
+<p class="govuk-body">
+  <a href="#" class="govuk-link govuk-link--no-visited-state">Search again</a>
+</p>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

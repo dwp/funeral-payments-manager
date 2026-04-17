@@ -1,0 +1,270 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+  Money to pay for the funeral – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v7/funeral/accept-burial-plot" method="post">
+
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+          {% from "govuk/components/input/macro.njk" import govukInput %}
+          
+          {% set plotHtml %}
+          {{ govukInput({
+            id: "plot",
+            name: "plot",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set burialHtml %}
+          {{ govukInput({
+            id: "burial",
+            name: "burial",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set cremHtml %}
+          {{ govukInput({
+            id: "crem",
+            name: "crem",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set docsHtml %}
+          {{ govukInput({
+            id: "docs",
+            name: "docs",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set travelHtml %}
+          {{ govukInput({
+            id: "travel",
+            name: "travel",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set bodyHtml %}
+          {{ govukInput({
+            id: "body",
+            name: "body",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set pacemakermedicalHtml %}
+          {{ govukInput({
+            id: "pacemakermedical",
+            name: "pacemakermedical",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set pacemakerHtml %}
+          {{ govukInput({
+            id: "pacemaker",
+            name: "pacemaker",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {{ govukCheckboxes({
+            name: "funeral-costs",
+            value: "funeral-costs",
+            fieldset: {
+              legend: {
+                text: "Enter funeral costs requested",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Select all that apply."
+            },
+            items: [
+              {
+                value: "plot",
+                text: "Burial plot",
+                conditional: {
+                  html: plotHtml
+                }
+              },
+              {
+                value: "burial",
+                text: "Burial costs",
+                conditional: {
+                  html: burialHtml
+                }
+              },
+              {
+                value: "crem",
+                text: "Cremation costs",
+                conditional: {
+                  html: cremHtml
+                }
+              },
+              {
+                value: "docs",
+                text: "Documentation to release money",
+                conditional: {
+                  html: docsHtml
+                }
+              },
+              {
+                value: "travel",
+                text: "Travel to arrange or attend funeral",
+                conditional: {
+                  html: travelHtml
+                }
+              },
+              {
+                value: "body",
+                text: "Moving body over 50 miles",
+                conditional: {
+                  html: bodyHtml
+                }
+              },
+              {
+                value: "pacemaker",
+                text: "Removal of pacemaker (medical professional)",
+                conditional: {
+                  html: pacemakermedicalHtml
+                }
+              },
+              {
+                value: "pacemaker",
+                text: "Removal of pacemaker (non-medical professional)",
+                conditional: {
+                  html: pacemakerHtml
+                }
+              }
+            ]
+          }) }}
+
+             {% set otherexp2Html %}
+          {{ govukInput({
+            id: "otherexp2",
+            name: "otherexp2",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Enter exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+            {{ govukCheckboxes({
+            name: "funeral-costs",
+            value: "funeral-costs",
+            fieldset: {
+              legend: {
+                text: "[heading]",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            hint: {
+              text: ""
+            },
+            items: [
+              {
+                value: "otherexp2",
+                text: "Other funeral expenses",
+                conditional: {
+                  html: otherexp2Html
+                }
+              }
+            ]
+          }) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

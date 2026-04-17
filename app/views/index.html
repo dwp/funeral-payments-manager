@@ -13,6 +13,31 @@
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
 
+    <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+               Registration jounrey: build one
+            </span>
+          </h2>
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Start a claim",
+            href: "/v7/reg/start-claim"
+          }) }}
+
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+
+          <p class="govuk-body">This is the iterated and agreed happy path registeration flow for build one.</p>
+ 
+
+
+      </div>
+
       <div class="govuk-accordion__section">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
@@ -20,7 +45,11 @@
                3rd round of UR: Registration, eligibility & payment
             </span>
           </h2>
-          {% from "govuk/components/button/macro.njk" import govukButton %}
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+
+           {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
             text: "A",
@@ -37,14 +66,12 @@
             href: "/v6/c/find-a-claim"
           }) }}
           
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
           <p class="govuk-body">W/c 9th March 26 - iterated registration journey through to making payment. <br> <br> We are testing a new eligibility task, flagging an action to a DM & updated funeral costs task.</p>
  
 
 
-</div>
+      </div>
 
 
       <div class="govuk-accordion__section">

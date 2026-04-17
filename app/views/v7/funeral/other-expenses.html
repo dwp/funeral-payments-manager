@@ -1,0 +1,77 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+  Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="" method="post">
+
+      {% set adjustplotHtml %}
+      {{ govukInput({
+        id: "adjustplot",
+        name: "adjustplot",
+        spellcheck: false,
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        label: {
+          text: "Exact amount"
+        }
+      }) }}
+      {% endset -%}
+
+      <!-- <h1 class="govuk-heading-l">Funeral costs accepted</h1> -->
+      
+      {{ govukRadios({
+        name: "acceptplot",
+        fieldset: {
+          legend: {
+            text: "Are there other funeral expenses?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+         hint: {
+    text: "If there are multiple other funeral expenses, enter the total amount."
+  },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No",
+            conditional: {
+              html: adjustplotHtml
+            }
+          }
+        ]
+      }) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}
