@@ -1,0 +1,37 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+Is the claimant eligible for a Funeral Expenses Payment? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/path/of/next/page" method="post">
+
+      <div style="background:#d4351c !important;" class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Claim disallowed
+        </h1>
+      </div>
+      <br><br>
+
+      <p class="govbody">A letter has been sent out to John Dan Topaz.</p>
+
+      <p class="govuk-body">
+        <a href="/index" class="govuk-link govuk-link--no-visited-state">View claim details</a>
+      </p>
+      
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+Do any of these apply to this claim? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/disallow-reason-v7" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+classes: "govuk-radios",
+name: "disallowreason",
+values: data["disallowreason"],
+fieldset: {
+  legend: {
+    text: "Do any of these apply to this claim?",
+    isPageHeading: true,
+    classes: "govuk-fieldset__legend--l"
+  }
+},
+
+items: [
+  {
+    value: "Award has already been made for deceased",
+    text: "Award has already been made for deceased"
+  },
+  {
+    value: "Claimant has not provided sufficient evidence",
+    text: "Claimant has not provided sufficient evidence "
+  },
+  {
+    value: "Claimant does not receive qualifying benefits",
+    text: "Claimant does not receive qualifying benefits "
+  },
+  {
+    value: "Funeral was not in the UK, EEA or Switzerland",
+    text: "Funeral was not in the UK, EEA or Switzerland"
+  },
+  {
+    value: "Deceased did not usually live in the UK",
+    text: "Deceased did not usually live in the UK"
+  },
+  {
+    value: "Funeral was more than 6 months ago",
+    text: "Funeral was more than 6 months ago"
+  },
+  {
+    value: "Claimant is not the responsible person",
+    text: "Claimant is not the responsible person"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "None of these apply, claimant is eligible",
+      text: "None of these apply, claimant is eligible"
+    }
+  ]
+}) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

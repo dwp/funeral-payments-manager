@@ -1,0 +1,51 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+You are about to disallow – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v7/eligibility/claim-disallowed" method="post">
+
+      <h1 class="govuk-heading-l">You are about to disallow this claim</h1>
+    
+      {% if data and data.disallowreason %}
+      <p class="govuk-body">{{ data.disallowreason }}.</p>
+      {% endif %}
+
+      {% if data and data.whynotresponsible %}
+      <p class="govuk-body">{{ data.whynotresponsible }}.</p>
+      {% endif %}
+
+      <br>
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Disallow claim",
+    classes: "govuk-button--warning"
+  }) }}
+
+  <a class="govuk-link" href="#">Cancel</a>
+</div>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

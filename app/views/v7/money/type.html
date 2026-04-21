@@ -19,15 +19,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/v7/funeral/other-expenses" method="post">
+    <form class="form" action="/v7/money/cya" method="post">
 
           {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
           {% from "govuk/components/input/macro.njk" import govukInput %}
           
-          {% set plotHtml %}
+          {% set cashHtml %}
           {{ govukInput({
-            id: "plot",
-            name: "plot",
+            id: "cash",
+            name: "cash",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -39,10 +39,10 @@
           }) }}
           {% endset -%}
 
-          {% set burialHtml %}
+          {% set accountsHtml %}
           {{ govukInput({
-            id: "burial",
-            name: "burial",
+            id: "accounts",
+            name: "accounts",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -54,10 +54,10 @@
           }) }}
           {% endset -%}
 
-          {% set cremHtml %}
+          {% set isaHtml %}
           {{ govukInput({
-            id: "crem",
-            name: "crem",
+            id: "isa",
+            name: "isa",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -69,10 +69,10 @@
           }) }}
           {% endset -%}
 
-          {% set docsHtml %}
+          {% set insuranceHtml %}
           {{ govukInput({
-            id: "docs",
-            name: "docs",
+            id: "insurance",
+            name: "insurance",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -84,10 +84,10 @@
           }) }}
           {% endset -%}
 
-          {% set travelHtml %}
+          {% set pensionHtml %}
           {{ govukInput({
-            id: "travel",
-            name: "travel",
+            id: "pension",
+            name: "pension",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -99,10 +99,10 @@
           }) }}
           {% endset -%}
 
-          {% set bodyHtml %}
+          {% set clubHtml %}
           {{ govukInput({
-            id: "body",
-            name: "body",
+            id: "club",
+            name: "club",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -114,10 +114,10 @@
           }) }}
           {% endset -%}
 
-          {% set pacemakermedicalHtml %}
+          {% set warHtml %}
           {{ govukInput({
-            id: "pacemakermedical",
-            name: "pacemakermedical",
+            id: "war",
+            name: "war",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -129,10 +129,25 @@
           }) }}
           {% endset -%}
 
-          {% set pacemakerHtml %}
+          {% set planHtml %}
           {{ govukInput({
-            id: "pacemaker",
-            name: "pacemaker",
+            id: "plan",
+            name: "plan",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Exact amount"
+            }
+          }) }}
+          {% endset -%}
+
+          {% set otherHtml %}
+          {{ govukInput({
+            id: "other",
+            name: "other",
             spellcheck: false,
             prefix: {
               text: "£"
@@ -145,11 +160,11 @@
           {% endset -%}
 
           {{ govukCheckboxes({
-            name: "funeral-costs",
-            value: "funeral-costs",
+            name: "moneytype",
+            value: "moneytype",
             fieldset: {
               legend: {
-                text: "Enter funeral costs requested",
+                text: "Enter money from deceased's etate",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
@@ -159,64 +174,73 @@
             },
             items: [
               {
-                value: "plot",
-                text: "Burial plot",
+                value: "cash",
+                text: "Cash",
                 conditional: {
-                  html: plotHtml
+                  html: cashHtml
                 }
               },
               {
-                value: "burial",
-                text: "Burial costs",
+                value: "accounts",
+                text: "Bank accounts",
                 conditional: {
-                  html: burialHtml
+                  html: accountsHtml
                 }
               },
               {
-                value: "crem",
-                text: "Cremation costs",
+                value: "isa",
+                text: "ISAs",
                 conditional: {
-                  html: cremHtml
+                  html: isaHtml
                 }
               },
               {
-                value: "docs",
-                text: "Documentation to release money",
+                value: "insurance",
+                text: "Life insurance policy",
                 conditional: {
-                  html: docsHtml
+                  html: insuranceHtml
                 }
               },
               {
-                value: "travel",
-                text: "Travel to arrange or attend funeral",
+                value: "pension",
+                text: "Occupational pension",
                 conditional: {
-                  html: travelHtml
+                  html: pensionHtml
                 }
               },
               {
-                value: "body",
-                text: "Moving body over 50 miles",
+                value: "club",
+                text: "Burial club",
                 conditional: {
-                  html: bodyHtml
+                  html: clubHtml
                 }
               },
               {
-                value: "pacemaker",
-                text: "Removal of pacemaker (medical professional)",
+                value: "war",
+                text: "War Pension Funeral grant",
                 conditional: {
-                  html: pacemakermedicalHtml
+                  html: warHtml
                 }
               },
               {
-                value: "pacemaker",
-                text: "Removal of pacemaker (non-medical professional)",
+                value: "plan",
+                text: "Pre-paid funeral plan",
+                hint: {
+                  text: "Paid direct to deceased's estate"
+                },
                 conditional: {
-                  html: pacemakerHtml
+                  html: planHtml
+                }
+              },
+              {
+                value: "other",
+                text: "Other money",
+                conditional: {
+                  html: otherHtml
                 }
               }
             ]
           }) }}
-
 
 {{ govukButton({
   text: "Continue"

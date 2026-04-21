@@ -88,8 +88,13 @@ router.post('*', function (req, res, next) {
       router.post('/disallow-reason-v7', function(request, response) {
 
         var disallow = request.session.data['disallowreason']
-        if (disallow == "Claimant is not responsible for paying for the funeral"){
+        if (disallow == "Claimant is not the responsible person"){
             response.redirect("/v7/eligibility/why-not-responsible")
+
+
+        } else if (disallow == "None of these apply, claimant is eligible") {
+        response.redirect("/v7/eligibility/relationship")
+
         } else {
             response.redirect("/v7/eligibility/about-to-disallow")
         }
