@@ -17,11 +17,40 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-               4th round of UR: Eligibility and funeral costs
+               Iterations: Eligibility and funeral costs
             </span>
           </h2>
 
           {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Start",
+            href: "/v8/a/find-a-claim"
+          }) }}
+
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+
+        <p class="govuk-body">Iterations from 4th round added to deisgn.</p>
+ 
+
+
+      </div>
+
+
+        <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+               4th round of UR: Eligibility and funeral costs
+            </span>
+          </h2>
+
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+   
+     {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
             text: "A",
@@ -33,10 +62,6 @@
             href: "/v7/b/find-a-claim"
           }) }}
 
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-
-
           <p class="govuk-body">W/c 27 April 26 - testing iterations to eligibility and funeral cost task.</p>
  
 
@@ -47,7 +72,7 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-               Registration jounrey: build one
+               Registration journey: build one
             </span>
           </h2>
 

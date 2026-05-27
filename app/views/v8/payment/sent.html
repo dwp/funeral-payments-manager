@@ -1,0 +1,50 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+  Payment sent – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/make-payment-answer-v8" method="post">
+
+      <!-- <h1 class="govuk-heading-l">Payment sent</h1> -->
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{{ govukPanel({
+  titleText: "Claim complete",
+  html: ""
+}) }}
+
+<br><p class="govuk-body">Decision letters will be sent automatically to the claimant and to the funeral director.</p>
+
+{# <br><p class="govuk-body">Decision letters will be sent out to {{ data['fd-name'] or "funeral director" }}.</p> #}
+
+<p class="govuk-body">Tom Smith & Sons will be paid <b>£1065<b>.</p>
+
+<p class="govuk-body">The claimant will be paid <b>£619.30</b>.</p>
+
+<p class="govuk-body">Total award amount is £1684.30.</p>
+
+{# <p class="govuk-body">
+  <a href="/index" class="govuk-link govuk-link--no-visited-state">Return to home</a>
+</p> #}
+
+<!-- <h2 class="govuk-heading-m">What to do next</h2>
+
+<p class="govuk-body">
+  <a href="/v8/debt/refer" class="govuk-link govuk-link--no-visited-state">Abandon claim or refer to Debt Management</a>
+</p> -->
+
+      
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}
