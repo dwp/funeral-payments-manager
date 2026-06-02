@@ -22,14 +22,14 @@
     <form class="form" action="/v8/eligibility/cya" method="post">
 
  
-      <!-- {% if (data['youhavepartner'] == "yes") %}
+     {% if data['relationship'] == "Partner" %}
 
         {{ govukCheckboxes({
           name: "benefits",
           values: data["benefits"],
           fieldset: {
             legend: {
-              text: "What benefits is the claimant or their partner getting?",
+              text: "What benefits is the claimant getting?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -65,26 +65,18 @@
             {
               value: "Support for Morgage Interest",
               text: "Support for Mortgage Interest"
-            },
-            {
-              divider: "or"
-            },
-            {
-              value: "no",
-              text: "None",
-              behaviour: "exclusive"
             }
           ]
         }) }}
 
-        {% else %} -->
+        {% else %} 
 
           {{ govukCheckboxes({
             name: "benefits",
             values: data["benefits"],
             fieldset: {
               legend: {
-                text: " What benefits is the claimant getting?",
+                text: "What benefits is the claimant or their partner getting?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
@@ -120,19 +112,11 @@
               {
                 value: "Support for Morgage Interest",
                 text: "Support for Mortgage Interest"
-              },
-              {
-                divider: "or"
-              },
-              {
-                value: "no",
-                text: "None",
-                behaviour: "exclusive"
               }
             ]
           }) }}
 
-          <!-- {% endif %} -->
+       {% endif %}
         
         {{ govukButton({
           text: "Continue"
