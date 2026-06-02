@@ -10,12 +10,15 @@
     "@govuk-prototype-kit/step-by-step": "2.2.3",
     "@govuk-prototype-kit/task-list": "2.0.0",
     "@ministryofjustice/frontend": "^8.0.0",
-    "axios": "^1.13.5",
+    "axios": "^1.16.1",
     "govuk-frontend": "5.11.2",
     "govuk-prototype-kit": "13.18.0",
     "hmrc-frontend": "^6.85.0",
     "jquery": "3.7.1",
     "notifications-node-client": "8.2.1",
-    "qs": "^6.14.1"
+    "qs": "^6.14.1",
+    "tmp": "^0.2.7",
+    "uuid": "^14.0.0",
+    "ws": "^8.21.0"
   }
 }
