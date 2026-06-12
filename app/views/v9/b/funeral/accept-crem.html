@@ -1,7 +1,7 @@
 {% extends "layouts/main6.html" %}
 
 {% block pageTitle %}
-Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
+  Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,12 +17,12 @@ Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/v8/funeral/accept-other-expenses-b" method="post">
+    <form class="form" action="/v9/b/funeral/accept-other-expenses-d" method="post">
 
-      {% set adjustburialHtml %}
+      {% set adjustcremHtml %}
       {{ govukInput({
-        id: "adjustburial",
-        name: "adjustburial",
+        id: "adjustcrem",
+        name: "adjustcrem",
         spellcheck: false,
         prefix: {
           text: "£"
@@ -35,12 +35,12 @@ Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
       {% endset -%}
 
       <!-- <h1 class="govuk-heading-l">Funeral costs accepted</h1> -->
-
+      
       {{ govukRadios({
-        name: "acceptburial",
+        name: "acceptcrem",
         fieldset: {
           legend: {
-            text: "Award £" + data['burial'] +  " for burial costs?",
+            text: "Award £" + data['crem'] +  " for cremation?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -51,17 +51,17 @@ Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
             text: "Yes"
           },
           {
-            value: "",
+            value: "no",
             text: "No, change amount",
             conditional: {
-              html: adjustburialHtml
+              html: adjustcremHtml
             }
           },
           {
             divider: "or"
           },
           {
-            value: "abroad",
+            value: "covered",
             text: "Fully covered by pre-paid funeral plan"
           }
         ]

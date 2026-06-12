@@ -1,0 +1,177 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+Other funeral expenses – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v9/a/funeral/cya" method="post">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Award £1000 for other funeral expenses?
+      </h1>
+    </legend>
+
+    <div class="govuk-hint">
+     Money restricted from necessary costs can be reallocated where reasonable, when the amount requested is under the £1000 cap.
+    </div>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      How we calculated this amount
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+
+   <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Other funeral expenses requested</th>
+                  <td class="govuk-table__cell">£820</td>
+                </tr>
+       </thead>
+     </tbody>
+   </table>
+
+         <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-two-thirds">Restricted costs</th>
+                <td class="govuk-table__cell"></td>
+              </tr>
+               <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-two-thirds govuk-!-font-weight-regular">Burial plot</th>
+                <td class="govuk-table__cell">£105</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-two-thirds govuk-!-font-weight-regular">Burial cost</th>
+                <td class="govuk-table__cell">£120</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-two-thirds">Total</th>
+                <td class="govuk-table__cell">£225</td>
+              </tr>
+            </tbody>
+          </table>
+
+            <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Maximum amount we can reallocate</th>
+                  <td class="govuk-table__cell">£200</td>
+                </tr>
+       </thead>
+     </tbody>
+   </table>
+
+           <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Amount we can award</th>
+                  <td class="govuk-table__cell">£1000 (cap amount)</td>
+                </tr>
+       </thead>
+     </tbody>
+   </table>
+  </div>
+</details>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="acceptother"
+               name="acceptother"
+               type="radio"
+               value="yes">
+        <label class="govuk-label govuk-radios__label" for="acceptother">
+          Yes
+        </label>
+      </div>
+
+    
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="acceptother-2"
+               name="acceptother"
+               type="radio"
+               value="no"
+               data-aria-controls="conditional-acceptother-2">
+        <label class="govuk-label govuk-radios__label" for="acceptother-2">
+          No, change amount
+        </label>
+      </div>
+
+     
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+           id="conditional-acceptother-2">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="adjustother">
+            Exact amount
+          </label>
+
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-5"
+                   id="adjustother"
+                   name="adjustother"
+                   type="text"
+                   spellcheck="false">
+          </div>
+        </div>
+
+      </div>
+
+     
+      <div class="govuk-radios__divider">or</div>
+
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="acceptother-3"
+               name="acceptother"
+               type="radio"
+               value="abroad">
+        <label class="govuk-label govuk-radios__label" for="acceptother-3">
+          Award £120, pre-paid funeral plan
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+</div>
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

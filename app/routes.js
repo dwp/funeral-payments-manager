@@ -33,3 +33,5 @@ require('./routes/v6.js')(router);
 require('./routes/v7.js')(router);
 
 require('./routes/v8.js')(router);
+
+require('./routes/v9.js')(router);

@@ -1,7 +1,7 @@
 {% extends "layouts/main6.html" %}
 
 {% block pageTitle %}
-Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
+  Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,12 +17,12 @@ Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/v8/funeral/accept-other-expenses-b" method="post">
+    <form class="form" action="/v9/a/funeral/accept-burial-plot" method="post">
 
-      {% set adjustburialHtml %}
+      {% set othercostHtml %}
       {{ govukInput({
-        id: "adjustburial",
-        name: "adjustburial",
+        id: "othercost",
+        name: "othercost",
         spellcheck: false,
         prefix: {
           text: "£"
@@ -35,34 +35,30 @@ Funeral costs – {{ serviceName }} – GOV.UK Prototype Kit
       {% endset -%}
 
       <!-- <h1 class="govuk-heading-l">Funeral costs accepted</h1> -->
-
+      
       {{ govukRadios({
-        name: "acceptburial",
+        name: "othercost",
         fieldset: {
           legend: {
-            text: "Award £" + data['burial'] +  " for burial costs?",
+            text: "Are there other funeral expenses?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
+         hint: {
+    text: "If there are multiple other funeral expenses, enter the total amount."
+  },
         items: [
           {
-            value: "yes",
-            text: "Yes"
-          },
-          {
-            value: "",
-            text: "No, change amount",
+            value: "Yes",
+            text: "Yes",
             conditional: {
-              html: adjustburialHtml
+              html: othercostHtml
             }
           },
           {
-            divider: "or"
-          },
-          {
-            value: "abroad",
-            text: "Fully covered by pre-paid funeral plan"
+            value: "No",
+            text: "No"
           }
         ]
       }) }}

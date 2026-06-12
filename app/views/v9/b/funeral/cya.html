@@ -19,7 +19,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/v8/tasklist" method="post">
+    <form class="form" action="/v9/b/tasklist" method="post">
 
       <h1 class="govuk-heading-l">Check your answers</h1>
 
@@ -28,16 +28,16 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-           Burial plot
+           Cremation
           </dt>
           <dd class="govuk-summary-list__value">
-            £{{ data['plot'] }}
+            £{{ data['crem'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/v1/money/available">Change<span class="govuk-visually-hidden"> name</span></a>
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
+        {# <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Burial costs
           </dt>
@@ -47,13 +47,13 @@
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/v1/money/type">Change<span class="govuk-visually-hidden"> name</span></a>
           </dd>
-        </div>
+        </div> #}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
            Other funeral expenses
           </dt>
           <dd class="govuk-summary-list__value">
-            £800
+            £910
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/v1/money/type">Change<span class="govuk-visually-hidden"> date of birth</span></a>
@@ -64,7 +64,7 @@
             Total
           </dt>
           <dd class="govuk-summary-list__value">
-            £2270
+            £2120
           </dd>
           <!-- <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/v1/money/type">Change<span class="govuk-visually-hidden"> date of birth</span></a>
@@ -77,16 +77,16 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-6">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Burial plot
+            Cremation
           </dt>
           <dd class="govuk-summary-list__value">
-            £{{ data['adjustplot'] }}
+            £{{ data['adjustcrem'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/v1/money/available">Change<span class="govuk-visually-hidden"> name</span></a>
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
+        {# <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
            Burial costs
           </dt>
@@ -96,7 +96,7 @@
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/v1/money/type">Change<span class="govuk-visually-hidden"> name</span></a>
           </dd>
-        </div>
+        </div> #}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Other funeral expenses
@@ -113,7 +113,7 @@
             Total
           </dt>
           <dd class="govuk-summary-list__value">
-            £2180
+            £1990
           </dd>
           <!-- <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/v1/money/type">Change<span class="govuk-visually-hidden"> date of birth</span></a>
