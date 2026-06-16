@@ -1,0 +1,46 @@
+{% extends "layouts/main8b.html" %}
+
+{% block pageTitle %}
+  Find a claim – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+ <div class="govuk-grid-column-two-thirds">
+
+ <h1 class="govuk-heading-l">Find a claim</h1>
+
+ <div class="moj-search">
+  <form action="" method="post">
+    <div class="govuk-form-group">
+      <label class="govuk-label moj-search__label" for="search">
+        Claimant's National Insurance number
+      </label>
+      <input class="govuk-input govuk-input--width-10 moj-search__input " id="search" name="claimantnino" type="search" aria-describedby="search-hint" value="{{ data.ninoc }}">
+      <button type="submit" class="govuk-button" data-module="govuk-button" 
+      style= "margin-left: 6px;">
+        Search
+      </button>
+    </div> 
+  </form>
+
+  <h2 class="govuk-heading-m">Search results</h2>
+
+  <p class="govuk-body" style="margin-bottom: 4px">
+    <a href="/v9/a/tasklist" class="govuk-link govuk-link--no-visited-state">Active claim</a></p>
+    <p class="govuk-body-s">Claimant: John Mark Smith<br>10 June 2026<br>Deceased: Mary Smith</p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <p class="govuk-body" style="margin-bottom: 4px">
+    <a href="/v9/a/tasklist" class="govuk-link govuk-link--no-visited-state">Active claim</a></p>
+     <p class="govuk-body-s">Claimant: John Mark Smith<br>1 April 2026<br>Deceased: Helen Smith</p>
+
+
+    {# <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"> #}
+
+</div>
+
+
+{% endblock %}
