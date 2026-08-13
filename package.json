@@ -5,20 +5,20 @@
     "start": "govuk-prototype-kit start"
   },
   "dependencies": {
-    "@dwp/dwp-frontend": "^3.3.0",
+    "@dwp/dwp-frontend": "3.4.0",
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@govuk-prototype-kit/step-by-step": "2.2.4",
     "@govuk-prototype-kit/task-list": "2.0.0",
-    "@ministryofjustice/frontend": "^8.0.0",
-    "axios": "^1.18.0",
+    "@ministryofjustice/frontend": "8.0.1",
+    "axios": "1.19.0",
     "govuk-frontend": "5.14.0",
-    "govuk-prototype-kit": "^13.20.3",
-    "hmrc-frontend": "^6.85.0",
+    "govuk-prototype-kit": "13.20.3",
+    "hmrc-frontend": "6.117.0",
     "jquery": "3.7.1",
     "notifications-node-client": "8.4.0",
-    "qs": "^6.14.1",
-    "tmp": "^0.2.7",
-    "uuid": "^14.0.0",
-    "ws": "^8.21.0"
+    "qs": "6.15.3",
+    "tmp": "0.2.7",
+    "uuid": "14.0.1",
+    "ws": "8.21.3"
   }
 }
