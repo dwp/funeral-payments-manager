@@ -13,13 +13,60 @@
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
 
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+               6th round of UR: Confirm award amount
+            </span>
+          </h2>
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "A",
+            href: "/v10/a/find-a-claim"
+          }) }}
+
+           {{ govukButton({
+            text: "B",
+            href: "/v10/b/find-a-claim"
+          }) }}
+
+          {{ govukButton({
+            text: "C",
+            href: "/v10/c/find-a-claim"
+          }) }}
+
+          {{ govukButton({
+            text: "D",
+            href: "/v10/d/find-a-claim"
+          }) }}
+
+        </div>
+        
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+
+        <p class="govuk-body">W/c 17 August 26 - Testing an iterated task to confirm the award amount. This is due to an update to the funeral cost task & accessibility guidance.</p>
+ 
+
+
+      </div>
+
             <div class="govuk-accordion__section">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-               5th round of UR: Funeral costs
+               5th round of UR: Funeral costs 
             </span>
           </h2>
+
+        </div>
+        
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+
 
           {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -32,9 +79,6 @@
             text: "B",
             href: "/v9/b/find-a-claim"
           }) }}
-
-        </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
 
         <p class="govuk-body">W/c 15 June 26 - Testing reallocation of restricted necessary costs and how we present this back to agents.</p>

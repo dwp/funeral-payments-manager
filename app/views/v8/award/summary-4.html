@@ -1,0 +1,184 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Confirm award amount – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+ 
+    <form class="form" action="/v8/tasklist" method="post">
+      
+          <h1 class="govuk-heading-l">
+            Confirm award amount
+          </h1>
+      
+          <h2 class="govuk-heading-m">
+            Award summary
+          </h2>
+      
+          <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+      
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Requested funeral costs
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £2,065.00
+              </dd>
+            </div>
+      
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Accepted funeral costs
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £1,846.00
+              </dd>
+            </div>
+      
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Minus deductions
+              </dt>
+              <dd class="govuk-summary-list__value">
+                -£380.70
+              </dd>
+            </div>
+      
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-font-weight-bold">
+                Total award amount
+              </dt>
+              <dd class="govuk-summary-list__value govuk-!-font-weight-bold">
+                £1,465.30
+              </dd>
+            </div>
+      
+          </dl>
+      
+          <h2 class="govuk-heading-m">
+            Deductions
+          </h2>
+      
+          <span class="govuk-caption-m">
+            Money from deceased's estate
+          </span>
+      
+          <table class="govuk-table govuk-!-margin-top-3">
+      
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">
+                  Deduction type
+                </th>
+                <th scope="col" class="govuk-table__header">
+                  Amount
+                </th>
+              </tr>
+            </thead>
+      
+            <tbody class="govuk-table__body">
+      
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  Cash
+                </th>
+                <td class="govuk-table__cell">
+                  £130.00
+                </td>
+              </tr>
+      
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  Bank accounts
+                </th>
+                <td class="govuk-table__cell">
+                  £250.70
+                </td>
+              </tr>
+      
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-font-weight-bold">
+                  Total estate deductions
+                </th>
+                <td class="govuk-table__cell govuk-!-font-weight-bold">
+                  £380.70
+                </td>
+              </tr>
+      
+            </tbody>
+      
+          </table>
+      
+          <form action="#" method="postrm-group">
+              <fieldset class="govuk-fieldset">
+      
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h2 class="govuk-fieldset__heading">
+                    Do you confirm the award amount is £1,465.30?
+                  </h2>
+                </legend>
+      
+                <div class="govuk-radios" data-module="govuk-radios">
+      
+                  <div class="govuk-radios__item">
+                    <input
+                      class="govuk-radios__input"
+                      id="confirm-yes"
+                      name="confirm-award"
+                      type="radio"
+                      value="yes">
+                    <label class="govuk-label govuk-radios__label" for="confirm-yes">
+                      Yes
+                    </label>
+                  </div>
+      
+                  <div class="govuk-radios__item">
+                    <input
+                      class="govuk-radios__input"
+                      id="confirm-no"
+                      name="confirm-award"
+                      type="radio"
+                      value="no">
+                    <label class="govuk-label govuk-radios__label" for="confirm-no">
+                      No
+                    </label>
+                  </div>
+      
+                </div>
+                
+              </fieldset>
+<br>
+              <button type="submit" class="govuk-button" data-module="govuk-button">
+                Confirm award
+              </button>
+            </div>
+      
+           
+      
+          </form>
+      
+        </div>
+      </div>
+
+    </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

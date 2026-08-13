@@ -1,0 +1,120 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Confirm award amount – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+ 
+    <form class="form" action="/v10/a/tasklist" method="post">
+    
+      <h1 class="govuk-heading-l">
+        Confirm award amount
+      </h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular govuk-!-width-two-thirds">
+            Requested funeral costs
+          </dt>
+          <dd class="govuk-summary-list__actions">
+            £2,605.00
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular govuk-!-width-two-thirds">
+            Accepted funeral costs
+          </dt>
+          <dd class="govuk-summary-list__actions">
+            £2,146.00
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+        Deductions for money in estate
+      </h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular govuk-!-width-two-thirds">
+            Cash
+          </dt>
+          <dd class="govuk-summary-list__actions">
+            -£280.00
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular govuk-!-width-two-thirds">
+            Bank accounts
+          </dt>
+          <dd class="govuk-summary-list__actions">
+            -£100.70
+          </dd>
+        </div>
+      </dl>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Total award amount after deductions
+            </h2>
+          </dt>
+          <dd class="govuk-summary-list__actions govuk-!-font-weight-bold">
+            £1,765.30
+          </dd>
+        </div>
+      </dl>
+
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "confirmaward",
+        fieldset: {
+          legend: {
+            text: "Do you confirm the award amount is £1,765.30?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Confirm award"
+      }) }}
+
+      <p class="govuk-body">
+        <br> <a href="/v10/a/award/a" class="govuk-link govuk-link--no-visited-state">a</a>
+       </p>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -114,6 +114,21 @@
           }) }}
           {% endset -%}
 
+          {% set certsHtml %}
+          {{ govukInput({
+            id: "certs",
+            name: "certs",
+            spellcheck: false,
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Exact amount"
+            }
+          }) }}
+          {% endset -%}
+
           {% set pacemakermedicalHtml %}
           {{ govukInput({
             id: "pacemakermedical",
@@ -200,6 +215,13 @@
                   html: bodyHtml
                 }
               },
+              {
+              value: "certs",
+              text: "Doctor's certficates",
+              conditional: {
+                html: certsHtml
+              }
+            },
               {
                 value: "pacemaker",
                 text: "Removal of pacemaker (medical professional)",

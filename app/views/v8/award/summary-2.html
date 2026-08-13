@@ -1,0 +1,130 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Confirm award amount – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+ 
+    <form class="form" action="/v8/tasklist" method="post">
+    
+
+<h1 class="govuk-heading-l">Confirm award amount</h1>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-2">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+      Funeral costs requested
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-text-align-right">
+    <p class="govuk-body">£2,065</p>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-4">
+
+<div class="govuk-grid-row govuk-!-margin-bottom-4">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">
+      Funeral costs accepted
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-text-align-right">
+    <p class="govuk-body">£1,846</p>
+  </div>
+</div>
+
+
+
+<h2 class="govuk-heading-s">
+  Deductions from deceased's estate
+</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body govuk-!-margin-bottom-1">Cash</p>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-text-align-right">
+    <p class="govuk-body govuk-!-margin-bottom-1">-£130</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-2">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">Bank accounts</p>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-text-align-right">
+    <p class="govuk-body">-£250.70</p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
+      Total
+    </h2>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-text-align-right">
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-4">
+      £1,465.30
+    </h2>
+  </div>
+</div>
+
+
+
+
+            {{ govukRadios({
+              classes: "govuk-radios--inline",
+              name: "confirmaward",
+              fieldset: {
+                legend: {
+                  text: "Do you confirm the award amount is £1465.30?",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+
+{{ govukButton({
+  text: "Confirm award"
+}) }}
+
+
+</form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

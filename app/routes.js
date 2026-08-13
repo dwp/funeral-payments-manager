@@ -35,3 +35,11 @@ require('./routes/v7.js')(router);
 require('./routes/v8.js')(router);
 
 require('./routes/v9.js')(router);
+
+require('./routes/v10.js')(router);
+
+require('./routes/v10b.js')(router);
+
+require('./routes/v10c.js')(router);
+
+require('./routes/v10d.js')(router);
