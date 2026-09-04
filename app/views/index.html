@@ -17,9 +17,44 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Complex registration designs
+            </span>
+          </h2>
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "A",
+            href: "/v11/tasklist"
+          }) }}
+
+          {{ govukButton({
+            text: "B",
+            href: "/v11/reg/start-claim"
+          }) }}
+
+        </div>
+        
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+        <p class="govuk-body">[enter description]</p>
+
+
+      </div>
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
                6th round of UR: Confirm award amount
             </span>
           </h2>
+
+        
+
+        </div>
+        
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
 
           {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -43,14 +78,7 @@
             href: "/v10/d/find-a-claim"
           }) }}
 
-        </div>
-        
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-
-
         <p class="govuk-body">W/c 17 August 26 - Testing an iterated task to confirm the award amount. This is due to an update to the funeral cost task & accessibility guidance.</p>
- 
-
 
       </div>
 
