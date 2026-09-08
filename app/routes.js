@@ -43,3 +43,5 @@ require('./routes/v10b.js')(router);
 require('./routes/v10c.js')(router);
 
 require('./routes/v10d.js')(router);
+
+require('./routes/v11.js')(router);

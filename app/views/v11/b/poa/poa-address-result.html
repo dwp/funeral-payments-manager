@@ -1,0 +1,76 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+  Funeral director details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v11/b/poa/cya" method="post">
+
+      <h1 class="govuk-heading-l">
+        Address of power of attorney
+      </h1>
+
+      <h2 class="govuk-heading-m">Postcode</h2>
+      <p class="govuk-body">{{ data['poa-address-postcode'] }}&emsp;<a href="home-address-postcode" class="govuk-link">Change</a>
+      </p>
+      <div class="govuk-form-group">
+        <label class="govuk-heading-m" for="address">
+          Select an address
+        </label>
+    
+          {{ govukSelect({
+            id: "home-address-select",
+            name: "home-address-select",
+            items: [
+            {value:"", text : "4 addresses found"},
+            {value:"22 FLAT ROAD, LONDON", text :"22 FLAT ROAD, LONDON"},
+            {value:"24 FLAT ROAD, LONDON", text :"24 FLAT ROAD, LONDON"},
+            {value:"26 FLAT ROAD, LONDON", text :"26 FLAT ROAD, LONDON"},
+            {value:"28 FLAT ROAD, LONDON", text :"28 FLAT ROAD, LONDON"}
+            ]
+          }) }}
+    
+        <!-- <select class="govuk-select" id="address" name="address">
+          <option value="47089597">60 addresses found</option>
+          <option value="2 TURNBERRY RED HOUSE FARM, WHITLEY BAY">2 TURNBERRY, RED HOUSE FARM, Cullercoats</option>
+        </select> -->
+      </div>
+  
+ 
+      <p class="govuk-body">
+        <a href="/v11/b/poa/poa-address-manual" class="govuk-link">
+          Enter address manually
+        </a>
+      </p><br>
+
+
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+
+
+       
+        
+      </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

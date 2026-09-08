@@ -1,0 +1,95 @@
+{% extends "layouts/main8.html" %}
+
+{% block pageTitle %}
+  Check appointee details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v11/a/tasklist" method="post">
+
+<h1 class="govuk-heading-l">Check appointee details</h1>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  classes: "govuk-summary-list--no-border",
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Polly Smith"
+      }
+    },
+    {
+      key: {
+        text: "Home address"
+      },
+      value: {
+        html: "34 Main Street<br>York<br>YO1 0EB"
+      }
+    },
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        html: '<p class="govuk-body">07933 232 123</p>'
+      }
+    }
+  ]
+}) }}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "appointee-match",
+  fieldset: {
+    legend: {
+      text: "Do these details match the claim form?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      hint: {
+        text: ""
+      }
+    },
+    {
+      value: "No",
+      text: "No",
+      hint: {
+        text: "Contact the appointee and tell them to phone the relevant benefit line to update their details. "
+      }
+    }
+  ]
+}) }}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

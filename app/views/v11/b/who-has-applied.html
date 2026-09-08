@@ -1,0 +1,61 @@
+{% extends "layouts/main7.html" %}
+
+{% block pageTitle %}
+  Does claimant have a partner – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/v11/b/deceased-search" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        classes: "govuk-radios",
+        name: "whoapplied",
+        values: data["whoapplied"],
+        fieldset: {
+          legend: {
+            text: "Who has applied on behalf of the claimant?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Appointee",
+            text: "Appointee"
+          }, 
+          {
+            value: "Power of Attorney",
+            text: "Power of Attorney"
+          },
+          {
+            value: "Person named in letter signed by claimant",
+            text: "Person named in letter signed by claimant"
+          }
+        ]
+      }) }}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

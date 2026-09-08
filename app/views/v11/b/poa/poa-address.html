@@ -1,0 +1,67 @@
+{% extends "layouts/main6.html" %}
+
+{% block pageTitle %}
+  Funeral director details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v11/b/poa/poa-address-result" method="post">
+
+      <h1 class="govuk-heading-l">
+       Address of power of attorney
+      </h1>
+
+{% block form %}
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="postcode">
+      Postcode
+    </label>
+
+    {{ govukInput({
+      id: "poa-address-postcode",
+      name: "poa-address-postcode",
+      value: data['poa-address-postcode'],
+      classes: 'govuk-input--width-10'
+    }) }}
+  </div>
+{% endblock %}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Find address
+</button>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">
+        <a href="/v11/b/poa/poa-address-manual" class="govuk-link">
+          Enter address manually
+        </a>
+      </p>
+    </div>
+  </div>
+
+
+       
+        
+      </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

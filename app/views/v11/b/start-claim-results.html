@@ -1,0 +1,107 @@
+{% extends "layouts/main7.html" %}
+
+{% block pageTitle %}
+  Claimant results – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/claimant-results-answer-11b" method="post">
+
+<h1 class="govuk-heading-l">Claimant's details</h1>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  classes: "govuk-summary-list--no-border",
+  rows: [
+    {
+      key: {
+        text: "National Insurance number"
+      },
+      value: {
+        text: "PA 03 57 34 C"
+      }
+    },
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Anna Campbell"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "12 May 1957"
+      }
+    },
+    {
+      key: {
+        text: "Home address"
+      },
+      value: {
+        html: "14 Wickford Road<br>London<br>E17 6ZH"
+      }
+    },
+    {
+      key: {
+        text: "Phone number"
+      },
+      value: {
+        html: '<p class="govuk-body">07700 900 982</p>'
+      }
+    }
+  ]
+}) }}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  classes: "govuk-checkboxes--small",
+  name: "someoneelse",
+  values: data["someoneelse"],
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Someone else has applied on behalf of the claimant"
+    }
+  ]
+}) }}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+<p class="govuk-body">
+  <a href="/v11/b/start-claim" class="govuk-link govuk-link--no-visited-state">Search again</a>
+</p>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

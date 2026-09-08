@@ -1,0 +1,74 @@
+{% extends "layouts/main8.html" %}
+
+{% block pageTitle %}
+  Evidence for named representative – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/v11/c/tasklist" method="post">
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "signed-letter",
+  fieldset: {
+    legend: {
+      text: "Have you seen evidence that this person has authority to act on the claimant’s behalf?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "For example, a signed letter from the claimant."
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      hint: {
+        text: ""
+      }
+    },
+    {
+      value: "No",
+      text: "No",
+      hint: {
+        text: "Contact the claimant for evidence."
+      }
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "disallow",
+      text: "Disallow claim",
+      hint: {
+        text: "This person did not have authority."
+      }
+    }
+  ]
+}) }}
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}
