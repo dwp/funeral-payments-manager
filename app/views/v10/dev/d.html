@@ -1,0 +1,94 @@
+{% extends "layouts/main3.html" %}
+
+{% block pageTitle %}
+  Confirm award amount – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+ 
+    <form class="form" action="/index" method="post">
+    
+      <h1 class="govuk-heading-l">
+        Confirm award amount
+      </h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular govuk-!-width-two-thirds">
+            Requested funeral costs
+          </dt>
+          <dd class="govuk-summary-list__actions">
+            £2,605.00
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular govuk-!-width-two-thirds">
+            Accepted funeral costs
+          </dt>
+          <dd class="govuk-summary-list__actions">
+            £2,605.00
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+        Money in deceased's estate
+      </h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular govuk-!-width-two-thirds">
+            None
+          </dt>
+          <dd class="govuk-summary-list__actions">
+            £0.00
+          </dd>
+        </div>
+      </dl>
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "confirmaward",
+        fieldset: {
+          legend: {
+            text: "Do you want to award £2,605?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Confirm award"
+      }) }}
+
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}
